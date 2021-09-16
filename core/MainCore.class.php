@@ -1,4 +1,4 @@
-<?php defined("BASEPATH") or die("Nope");
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
 class MainCore extends Extender{
     private static $instance;

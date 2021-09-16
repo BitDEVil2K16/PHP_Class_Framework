@@ -1,4 +1,4 @@
-<?php defined("BASEPATH") or exit("No No No");
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
 class Cool extends MainCore{
     public function __construct()

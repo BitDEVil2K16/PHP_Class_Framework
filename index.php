@@ -1,5 +1,5 @@
 <?php
-const DEBUG = false;
+const DEBUG = false; // ToDo
 const BASEPATH = __DIR__ . '/';
 const BASEURL = 'https://dev.bitdevil2k16.club/';
 

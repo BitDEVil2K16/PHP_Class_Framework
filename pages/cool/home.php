@@ -1,4 +1,4 @@
-<?php defined("BASEPATH") or die("Kein Direkt aufruf erlaubt");
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 $jo = $bla ?? false;
 if (!$jo){
     echo $testnon ?? "Hmmm";

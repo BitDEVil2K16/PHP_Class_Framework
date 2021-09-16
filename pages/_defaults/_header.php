@@ -1,3 +1,5 @@
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
+?>
 <!-- Part header.php Start -->
 <!DOCTYPE html>
 <html lang="de" style="background: #333; color: #999">
