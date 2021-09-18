@@ -48,7 +48,7 @@ if (!function_exists('InjectClass')){
                 }
                 array_shift($dta);
                 $fnc = array_key_exists(0, $dta) ? $dta[0] : 'index';
-                if (!method_exists($app, fnc)) {
+                if (!method_exists($app, $fnc)) {
                     if ($app->$fnc()) {
 
                     } else {
@@ -119,6 +119,10 @@ if (!function_exists('InjectClass')){
             $base->LoadView($page);
             $base->LoadView("_defaults/_footer");
         }
+    }
+    function &get_instance()
+    {
+        return MainCore::get_instance();
     }
 }
 

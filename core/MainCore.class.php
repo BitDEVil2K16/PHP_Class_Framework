@@ -2,6 +2,9 @@
 
 class MainCore extends Extender{
     private static $instance;
+    private $load;
+    public $config;
+    public $cookiemanager;
 
     public function __construct()
     {
@@ -9,6 +12,26 @@ class MainCore extends Extender{
         foreach(glob("helpers/*.php") as $helper){
             include_once ($helper);
         }
+        error_reporting(E_ALL);
+        ini_set('display_errors', '1');
+        foreach(glob("classes/*.php") as $class){
+            include_once ($class);
+        }
+        /** Settings **/
+        $this->config = new Settings();
+        $this->cookiemanager = new Cookie();
+        $this->cookiemanager->setDomain(config_item('cookie_domain'));
+        $this->cookiemanager->setPath(config_item('cookie_path'));
+        $this->cookiemanager->setPrefix(config_item('cookie_prefix'));
+        $this->cookiemanager->setSecure(config_item('cookie_secure'));
+        $this->cookiemanager->setHttpOnly(config_item('cookie_httponly'));
+        /* Load Function Classes */
+        foreach (is_loaded() as $var => $class)
+        {
+            $this->$var = load_class($class);
+        }
+        $charset = strtoupper(config_item('charset'));
+        ini_set('default_charset', $charset);
     }
 
     public function LoadView($page, $data = NULL){
@@ -17,6 +40,9 @@ class MainCore extends Extender{
         if (!$data){
             $data = [];
         }
+        /* Set User Style */
+        //$this->style->SetStyle(config_item('style'));
+
         $datas['data'] = $data;
         $page = str_replace(array(".php", "-"),"",$page);
         if (file_exists($_SERVER['DOCUMENT_ROOT'] . "pages/$page.php")){
@@ -34,12 +60,6 @@ class MainCore extends Extender{
 
     public static function &get_instance(){
         return self::$instance;
-    }
-
-
-    public function __destruct()
-    {
-        // TODO: Implement __destruct() method.
     }
 }
 

@@ -1,0 +1,28 @@
+/* Main Style */
+html{
+    color: #999 !important;
+    border: 0;
+    background-color: #111 !important;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #444), color-stop(100%, #111));
+    /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #333 0%, #111 100%);
+    /* Chrome10+,Safari5.1+ */
+    background: -moz-linear-gradient(top, #333 0%, #111 100%);
+    /* FF3.6+ */
+    background: -ms-linear-gradient(top, #333 0%, #111 100%);
+    /* IE10+ */
+    background: -o-linear-gradient(top, #333 0%, #111 100%);
+    /* Opera 11.10+ */
+    background: linear-gradient(to bottom, #333 0%, #111 100%);
+}
+
+.centerflex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.centerflex div {
+    width: 450px;
+    height: 50px;
+}
