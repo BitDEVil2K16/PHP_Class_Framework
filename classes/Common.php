@@ -57,7 +57,7 @@ if ( ! function_exists('config_item'))
 
 if ( ! function_exists('load_class'))
 {
-    function &load_class($class, $directory = 'libraries', $param = NULL)
+    function &load_class($class, $directory = 'classes', $param = NULL)
     {
         static $_classes = array();
 
@@ -78,16 +78,6 @@ if ( ! function_exists('load_class'))
                     require_once($path.$directory.'/'.$class.'.php');
                 }
                 break;
-            }
-        }
-
-        if (file_exists(APPPATH.$directory.'/'.config_item('subclass_prefix').$class.'.php'))
-        {
-            $name = config_item('subclass_prefix').$class;
-
-            if (class_exists($name, FALSE) === FALSE)
-            {
-                require_once(APPPATH.$directory.'/'.$name.'.php');
             }
         }
 
