@@ -1,30 +1,30 @@
 <style>
     .h3{
-        font-size: 24px;
+        font-size: 20px !important;
     }
     a{
         text-decoration: none;
-        color: #0a6ebd;
+        color: #40A4F3;
     }
     a:visited{
-        color: #0a6ebd;
+        color: #40A4F3;
     }
 </style>
-<h3 class="centerflex">
+<div class="centerflex h3" style="height: 100px; overflow: hidden">
     <div>Hallo hier werden wir dan als Nächstes mal ein Template einbinden damit wir ein wenig Frontend Haben!</div>
     <div id="hiddenpart" class="hiddeblock">
-        <h1><span style="color: lime">I was Hidden!</span></h1>
+        <span style="color: lime">I was Hidden!</span>
     </div>
-</h3>
+</div>
 <hr />
-<h3 class="centerflex">
-    <div class="h3">
-        ToDo und so : <a href="https://github.com/BitDEVil2K16/PHP_Class_Framework/projects/1" target="_blank">Github Project</a>
+<div class="centerflex h3">
+    <div>
+        ToDo und so : <a href="https://github.com/BitDEVil2K16/PHP_Class_Framework/projects/1" target="_blank" rel="noreferrer" >Github Project</a>
     </div>
-    <div class="h3">
-        Source Code : <a href="https://github.com/BitDEVil2K16/PHP_Class_Framework" target="_blank">Github</a>
+    <div>
+        Source Code : <a href="https://github.com/BitDEVil2K16/PHP_Class_Framework" target="_blank" rel="noreferrer" >Github</a>
     </div>
-</h3>
+</div>
 
 <?php
 //$this->cookiemanager->delete('style');
@@ -37,7 +37,8 @@
 <script>
     // Inline Script
     setTimeout(()=>{
-        document.getElementById("hiddenpart").style.display = "block";
+        $("#hiddenpart").css('display','block');
+        //document.getElementById("hiddenpart").style.display = "block";
     },1000);
 
 </script>

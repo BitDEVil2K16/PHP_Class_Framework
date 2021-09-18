@@ -9,6 +9,10 @@ if (defined(DEBUG) && DEBUG){
 <!DOCTYPE html>
 <html lang="de" style="background: #333; color: #999">
 <head>
+    <meta name="description" content="PHP Class website Building WIP">
+    <meta name="keywords" content="HTML, CSS, JavaScript, PHP">
+    <meta name="author" content="BitDEVil2K16 Club">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <title><?= $title ?? "Ohne Titel" ?></title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link rel="stylesheet" href="<?= BaseUrl('core/css/mainstyle.css?v=0.0.6')?>" />
