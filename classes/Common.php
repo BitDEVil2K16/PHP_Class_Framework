@@ -41,6 +41,7 @@ if ( ! function_exists('get_config'))
         return $config;
     }
 }
+
 if ( ! function_exists('config_item'))
 {
     function config_item($item)
@@ -117,67 +118,6 @@ if ( ! function_exists('is_loaded'))
         }
 
         return $_is_loaded;
-    }
-}
-
-if ( ! function_exists('get_config'))
-{
-    function &get_config(Array $replace = array())
-    {
-        static $config;
-
-        if (empty($config))
-        {
-            $file_path = APPPATH.'config/config.php';
-            $found = FALSE;
-            if (file_exists($file_path))
-            {
-                $found = TRUE;
-                require($file_path);
-            }
-
-            if (file_exists($file_path = APPPATH.'config/'.ENVIRONMENT.'/config.php'))
-            {
-                require($file_path);
-            }
-            elseif ( ! $found)
-            {
-                set_status_header(503);
-                echo 'The configuration file does not exist.';
-                exit(3); // EXIT_CONFIG
-            }
-
-            if ( ! isset($config) OR ! is_array($config))
-            {
-                set_status_header(503);
-                echo 'Your config file does not appear to be formatted correctly.';
-                exit(3); // EXIT_CONFIG
-            }
-        }
-
-        // Are any values being dynamically added or replaced?
-        foreach ($replace as $key => $val)
-        {
-            $config[$key] = $val;
-        }
-
-        return $config;
-    }
-}
-
-if ( ! function_exists('config_item'))
-{
-    function config_item($item)
-    {
-        static $_config;
-
-        if (empty($_config))
-        {
-            // references cannot be directly assigned to static variables, so we use an array
-            $_config[0] =& get_config();
-        }
-
-        return $_config[0][$item] ?? NULL;
     }
 }
 
