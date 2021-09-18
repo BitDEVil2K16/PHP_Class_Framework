@@ -1,5 +1,13 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
-
+/*
+ * Copyright (c) 2021. BitDEVil2K16 Club. All rights reserved.
+ * @author BitDEVil2K16 (Sascha P.)
+ * @author BitDEVil2K16 Club <support@pc-dev.info>
+ * @author BitDEVil2K16 Club https://bitdevil2k16.club
+ * @github https://github.com/BitDEVil2K16
+ * @FileName: Settings.class.php
+ *
+ */
 class Settings {
     public $config = array();
     public $is_loaded =	array();
@@ -8,7 +16,6 @@ class Settings {
     public function __construct()
     {
         $this->config =& get_config();
-
         if (empty($this->config['base_url']))
         {
             if (isset($_SERVER['SERVER_ADDR']))

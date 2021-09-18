@@ -38,6 +38,6 @@
     // Inline Script
     setTimeout(()=>{
         document.getElementById("hiddenpart").style.display = "block";
-    },1500);
+    },1000);
 
 </script>

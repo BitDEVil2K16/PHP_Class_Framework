@@ -3,9 +3,7 @@
 class Cool extends MainCore{
     public function __construct()
     {
-        if (!isset($uiuiui)){
-            //die("haha");
-        }
+        parent::__construct();
     }
 
     public function index(){

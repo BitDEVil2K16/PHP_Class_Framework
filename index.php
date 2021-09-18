@@ -1,4 +1,13 @@
 <?php
+/*
+ * Copyright (c) 2021. BitDEVil2K16 Club. All rights reserved.
+ * @author BitDEVil2K16 (Sascha P.)
+ * @author BitDEVil2K16 Club <support@pc-dev.info>
+ * @author BitDEVil2K16 Club https://bitdevil2k16.club
+ * @github https://github.com/BitDEVil2K16
+ * @FileName: index.php
+ *
+ */
 const DEBUG = false;
 const BASEPATH = __DIR__ . '/';
 const APPPATH = __FILE__ ;
@@ -21,9 +30,9 @@ if (defined(DEBUG) && DEBUG){
 $base = new MainCore();
 $main =& $base->get_instance();
 
-load_class('AnjaScript', 'classes');
-load_class('CCPlus', 'classes');
-load_class('Style', 'classes');
+load_class('AnjaScript', 'system');
+load_class('CCPlus', 'system');
+load_class('Style', 'system');
 
 InjectClass($page);
 

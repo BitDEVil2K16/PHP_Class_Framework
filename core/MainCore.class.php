@@ -1,5 +1,13 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
-
+/*
+ * Copyright (c) 2021. BitDEVil2K16 Club. All rights reserved.
+ * @author BitDEVil2K16 (Sascha P.)
+ * @author BitDEVil2K16 Club <support@pc-dev.info>
+ * @author BitDEVil2K16 Club https://bitdevil2k16.club
+ * @github https://github.com/BitDEVil2K16
+ * @FileName: MainCore.class.php
+ *
+ */
 class MainCore extends Extender{
     private static $instance;
     private $load;
@@ -9,12 +17,11 @@ class MainCore extends Extender{
     public function __construct()
     {
         self::$instance =& $this;
+        include_once (BASEPATH.'system/Common.php');
         foreach(glob("helpers/*.php") as $helper){
             include_once ($helper);
         }
-        error_reporting(E_ALL);
-        ini_set('display_errors', '1');
-        foreach(glob("classes/*.php") as $class){
+        foreach(glob("classes/*.class.php") as $class){
             include_once ($class);
         }
         /** Settings **/

@@ -35,7 +35,7 @@ class AnjaScript{
     function jQueryUi($version = '1.12.1', $style = "sunny"): string
     {
         return '<script src="https://code.jquery.com/ui/'.$version.'/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>'.PHP_EOL.
-               '    <link rel="stylesheet" href="https://code.jquery.com/ui/'.$version.'/themes/'.$style.'/jquery-ui.css" />'.PHP_EOL;
+            '    <link rel="stylesheet" href="https://code.jquery.com/ui/'.$version.'/themes/'.$style.'/jquery-ui.css" />'.PHP_EOL;
     }
 
 }
