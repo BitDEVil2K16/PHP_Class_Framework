@@ -8,7 +8,7 @@
  * @FileName: index.php
  *
  */
-const DEBUG = false;
+const DEBUG = true;
 const BASEPATH = __DIR__ . '/';
 const APPPATH = __FILE__ ;
 const BASEURL = 'https://dev.bitdevil2k16.club/';
