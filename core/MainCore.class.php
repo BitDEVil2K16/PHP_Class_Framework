@@ -8,11 +8,21 @@
  * @FileName: MainCore.class.php
  *
  */
+require BASEPATH.'vendor/autoload.php';
+use Phpfastcache\CacheManager;
+use Phpfastcache\Config\Config;
+use Phpfastcache\Core\phpFastCache;
+
+// Setup File Path on your config files
+
+
 class MainCore extends Extender{
+
     private static $instance;
     private $load;
     public $config;
     public $cookiemanager;
+    public $cache;
 
     public function __construct()
     {
@@ -32,6 +42,12 @@ class MainCore extends Extender{
         $this->cookiemanager->setPrefix(config_item('cookie_prefix'));
         $this->cookiemanager->setSecure(config_item('cookie_secure'));
         $this->cookiemanager->setHttpOnly(config_item('cookie_httponly'));
+        CacheManager::setDefaultConfig(new Config([
+            "path" => sys_get_temp_dir(),
+            "itemDetailedDate" => false
+        ]));
+        $InstanceCache = CacheManager::getInstance('files');
+        $this->cache = $InstanceCache;
         /* Load Function Classes */
         foreach (is_loaded() as $var => $class)
         {
