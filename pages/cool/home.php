@@ -98,50 +98,6 @@ if (!function_exists('getFlagArrays')) {
         return $CachedString->get()[$type] ?? array();
     }
 }
-if (!function_exists('highlightText')) {
-    /**
-     * @param $text
-     * @param string $fileExt
-     * @return array|string|string[]|null
-     */
-    function highlightText($text, string $fileExt = "php")
-    {
-        if ($fileExt == "php") {
-            ini_set("highlight.comment", "#008000");
-            ini_set("highlight.default", "green");
-            ini_set("highlight.html", "#808080");
-            ini_set("highlight.keyword", "#909090; font-weight: bold");
-            ini_set("highlight.string", "#DD0000");
-        } else if ($fileExt == "html") {
-            ini_set("highlight.comment", "green");
-            ini_set("highlight.default", "#CC0000");
-            ini_set("highlight.html", "#000000");
-            ini_set("highlight.keyword", "black; font-weight: bold");
-            ini_set("highlight.string", "#0000FF");
-        }
-        $text = trim($text);
-        $text = highlight_string("<?php " . $text, true);
-        $text = trim($text);
-        $text = preg_replace("|^\\<code\\>\\<span style\\=\"color\\: #[a-fA-F0-9]{0,6}\"\\>|", "", $text, 1);
-        $text = preg_replace("|\\</code\\>\$|", "", $text, 1);
-        $text = trim($text);
-        $text = preg_replace("|\\</span\\>\$|", "", $text, 1);
-        $text = trim($text);
-        return preg_replace("|^(\\<span style\\=\"color\\: #[a-fA-F0-9]{0,6}\"\\>)(&lt;\\?php&nbsp;)(.*?)(\\</span\\>)|", "\$1\$3\$4", $text);
-    }
-}
-function code() {
-    static $on = false;
-    if ( !$on ) {
-        ob_start();
-    } else {
-        $buffer = "<?\n" . ob_get_contents() . "?>";
-        ob_end_clean();
-        highlight_string( $buffer );
-    }
-    $on = !$on;
-}
-
 
 $flaguint = $flagarg ?? 49;
 $flagtypearg = $flagtypearg ?? 'animation';
@@ -233,7 +189,7 @@ echo "Gesamt anzahl der DB Querys : ".$this->db->query_count;
 $lastinsert = $this->db->lastInsertID();
 echo "<br />Letze insert ID: " . ($lastinsert == 0 ? "Kein INSERT ausgeführt daher 0" : "Letze Insert ID: ".$lastinsert);
 
-echo "<br /><hr />Quellcode dieser Seite <a href='https://github.com/BitDEVil2K16/PHP_Class_Framework/blob/84b0dbe9aa2b2c5a00ecf1575a6644fd78327bc4/pages/cool/home.php#L1' target='_blank' rel='noreferrer'>direklink zum Git</a>";
+echo "<br /><hr />Quellcode dieser Seite <a href='https://github.com/BitDEVil2K16/PHP_Class_Framework/blob/main/pages/cool/home.php#L1' target='_blank' rel='noreferrer'>direklink zum Git</a>";
 
 
 ?>
