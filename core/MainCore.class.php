@@ -12,13 +12,15 @@ require BASEPATH.'vendor/autoload.php';
 use Phpfastcache\CacheManager;
 use Phpfastcache\Config\Config;
 use Phpfastcache\Core\phpFastCache;
-
-// Setup File Path on your config files
-
+CacheManager::setDefaultConfig(new Config([
+    "path" => sys_get_temp_dir(),
+    "itemDetailedDate" => false
+]));
+$cacheinstance = CacheManager::getInstance('files');
 
 class MainCore extends Extender{
-
     private static $instance;
+    public $db;
     private $load;
     public $config;
     public $cookiemanager;
@@ -26,6 +28,7 @@ class MainCore extends Extender{
 
     public function __construct()
     {
+        global $cacheinstance;
         self::$instance =& $this;
         include_once (BASEPATH.'system/Common.php');
         foreach(glob("helpers/*.php") as $helper){
@@ -35,19 +38,27 @@ class MainCore extends Extender{
             include_once ($class);
         }
         /** Settings **/
-        $this->config = new Settings();
-        $this->cookiemanager = new Cookie();
-        $this->cookiemanager->setDomain(config_item('cookie_domain'));
-        $this->cookiemanager->setPath(config_item('cookie_path'));
-        $this->cookiemanager->setPrefix(config_item('cookie_prefix'));
-        $this->cookiemanager->setSecure(config_item('cookie_secure'));
-        $this->cookiemanager->setHttpOnly(config_item('cookie_httponly'));
-        CacheManager::setDefaultConfig(new Config([
-            "path" => sys_get_temp_dir(),
-            "itemDetailedDate" => false
-        ]));
-        $InstanceCache = CacheManager::getInstance('files');
-        $this->cache = $InstanceCache;
+        if ($this->config){
+            $this->config = new Settings();
+        }
+        if ($this->cookiemanager == null){
+            $this->cookiemanager = new Cookie();
+            $this->cookiemanager->setDomain(config_item('cookie_domain'));
+            $this->cookiemanager->setPath(config_item('cookie_path'));
+            $this->cookiemanager->setPrefix(config_item('cookie_prefix'));
+            $this->cookiemanager->setSecure(config_item('cookie_secure'));
+            $this->cookiemanager->setHttpOnly(config_item('cookie_httponly'));
+        }
+        if ($this->cache == null){
+            $this->cache = $cacheinstance;
+        }
+
+        $dbhost = 'localhost';
+        $dbuser = 'root';
+        $dbpass = '';
+        $dbname = 'test';
+        //$this->db = new Database($dbhost, $dbuser, $dbpass, $dbname);
+
         /* Load Function Classes */
         foreach (is_loaded() as $var => $class)
         {

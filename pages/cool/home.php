@@ -19,7 +19,8 @@ if (!$jo){
     }
     $ctest = $CachedString->get();
     //$this->cache->deleteItem("starttime");
-    echo $ctest ." <-- Chace Test läuft ab am: " . $CachedString->getExpirationDate()->format('d.m.Y h:i:s');
+    echo "Cachetime auf 10 Minuten gesetzt<br />";
+    echo $ctest ." <-- Cache Test läuft ab am: " . $CachedString->getExpirationDate()->format('d.m.Y h:i:s');
     echo "<br />Project exist since: " . ontime('2021-09-15 04:25:12') . "<br />";
 }
 
@@ -78,19 +79,28 @@ if (!function_exists('getFlagArrays')) {
      */
     function getFlagArrays($type): array
     {
-        $flagarray["animation"] = array(
-            0 => "Normal",
-            1 => "Repeat",
-            2 => "Stop On Last Frame",
-            16 => "Upperbody Only",
-            32 => "Player Controlable",
-            120 => "CANCELABLE"
-        );
-        return $flagarray[$type] ?? array();
+        $key = $type."flagdatabase";
+        $CachedString = get_instance()->cache->getItem($key);
+        if (!$CachedString->isHit()) {
+            $flagarray["animation"] = array(
+                0 => "Normal",
+                1 => "Repeat",
+                2 => "Stop On Last Frame",
+                16 => "Upperbody Only",
+                32 => "Player Controlable",
+                120 => "CANCELABLE"
+            );
+            $CachedString->set($flagarray)->expiresAfter(10*60);
+            get_instance()->cache->save($CachedString);
+        }
+        //echo "Cache läuft ab: ".$CachedString->getExpirationDate()->format('d.m.Y h:i:s');
+        //echo implode("<br />",$CachedString->get()[$type]);
+        return $CachedString->get()[$type] ?? array();
     }
 }
-
-echo "<hr />Convert UINT(49) Back to Bits<br />";
-foreach (convertuinttobits(49) as $flag){
-    echo "Bit: $flag ist ".getFlagName($flag, 'animation')."<br />";
+$flaguint = $flagarg ?? 49;
+$flagtypearg = $flagtypearg ?? 'animation';
+echo "<hr /><br />Convert UINT($flaguint) Back to Bits<br /><br />";
+foreach (convertuinttobits($flaguint) as $flag) {
+    echo "Bit: <span style='color: #40A4F3'>$flag</span> ist ".getFlagName($flag, $flagtypearg)."<br />";
 }
