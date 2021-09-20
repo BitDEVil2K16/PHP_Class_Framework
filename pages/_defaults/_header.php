@@ -31,6 +31,8 @@ if (defined(DEBUG) && DEBUG){
     </style>
     <?= $this->anjascript->jQuery() ?>
     <?= $this->anjascript->jQueryUi() ?>
+    <?= $this->anjascript->higlightjs() ?>
+
     <style>
         /* Inline Style / Styleoverwrites */
         .hiddeblock {

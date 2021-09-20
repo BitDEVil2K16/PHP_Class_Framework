@@ -37,5 +37,11 @@ class AnjaScript{
         return '<script defer src="https://code.jquery.com/ui/'.$version.'/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>'.PHP_EOL.
             '    <link  rel=stylecheat as=style href="https://code.jquery.com/ui/'.$version.'/themes/'.$style.'/jquery-ui.css" />'.PHP_EOL;
     }
+    function higlightjs($version = '11.2.0', $style = "dracula"): string
+    {
+        return '<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/'.$version.'/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/'.$version.'/highlight.min.js"></script>
+    <link rel="stylesheet" href="'.BaseUrl('core/css/highligterthemes/'.$style.'.css?v=0.0.1').'" />'.PHP_EOL;
+    }
 
 }

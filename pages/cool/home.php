@@ -108,9 +108,9 @@ if (!function_exists('highlightText')) {
     {
         if ($fileExt == "php") {
             ini_set("highlight.comment", "#008000");
-            ini_set("highlight.default", "#666");
+            ini_set("highlight.default", "green");
             ini_set("highlight.html", "#808080");
-            ini_set("highlight.keyword", "#666; font-weight: bold");
+            ini_set("highlight.keyword", "#909090; font-weight: bold");
             ini_set("highlight.string", "#DD0000");
         } else if ($fileExt == "html") {
             ini_set("highlight.comment", "green");
@@ -130,6 +130,17 @@ if (!function_exists('highlightText')) {
         return preg_replace("|^(\\<span style\\=\"color\\: #[a-fA-F0-9]{0,6}\"\\>)(&lt;\\?php&nbsp;)(.*?)(\\</span\\>)|", "\$1\$3\$4", $text);
     }
 }
+function code() {
+    static $on = false;
+    if ( !$on ) {
+        ob_start();
+    } else {
+        $buffer = "<?\n" . ob_get_contents() . "?>";
+        ob_end_clean();
+        highlight_string( $buffer );
+    }
+    $on = !$on;
+}
 
 
 $flaguint = $flagarg ?? 49;
@@ -144,7 +155,8 @@ echo "<hr />";
 echo "<br /><br />>Database Test<br />";
 
 echo "<u>Für diesen test haben wir eine Datenbank angelgt und eine Tabelle erstellt</u>:<br />
-<pre>CREATE TABLE `Accounts` (
+<pre>
+<code class=\"language-sql\">CREATE TABLE `Accounts` (
 	`Id` INT(11) NOT NULL AUTO_INCREMENT,
 	`Username` VARCHAR(50) NOT NULL DEFAULT '0' COLLATE 'latin1_swedish_ci',
 	`Password` VARCHAR(50) NOT NULL DEFAULT '0' COLLATE 'latin1_swedish_ci',
@@ -156,12 +168,13 @@ echo "<u>Für diesen test haben wir eine Datenbank angelgt und eine Tabelle erst
 	PRIMARY KEY (`Id`) USING BTREE
 )
 COLLATE='latin1_swedish_ci'
-ENGINE=InnoDB;</pre>
+ENGINE=InnoDB;</code>
+</pre>
 
 <u>Ebenfals haben wir ein TestUser angelegt</u>:<pre>
-INSERT INTO `Accounts` (`Id`, `Username`, `Password`, `Salt`, `CreateAt`, `UpdateAt`, `LastLogin`, `LoginToken`) 
+<code class=\"language-sql\">INSERT INTO `Accounts` (`Id`, `Username`, `Password`, `Salt`, `CreateAt`, `UpdateAt`, `LastLogin`, `LoginToken`) 
 VALUES 
-(1, 'DerTester', 'BohNeEyWirklich', 'DasIstNice', '2021-09-20 09:45:44', '2021-09-20 09:45:45', '2021-09-20 09:45:46', 'HaHaHaLULCheckCookie? Nope');
+(1, 'DerTester', 'BohNeEyWirklich', 'DasIstNice', '2021-09-20 09:45:44', '2021-09-20 09:45:45', '2021-09-20 09:45:46', 'HaHaHaLULCheckCookie? Nope');</code>
 </pre>
 Und nun folgen die Ausgaben:<br /><br />
 ";
@@ -169,8 +182,13 @@ Und nun folgen die Ausgaben:<br /><br />
 
 echo "<hr />";
 /* Normal Quest */
-echo highlightText('$credentials = array(1);
-$account = $this->db->query(\'SELECT * FROM Accounts WHERE Id = ?\',$credentials)->fetchArray();')."<br />";
+?>
+<pre>
+    <code class="language-php">$credentials = array(1);
+$account = $this->db->query('SELECT * FROM Accounts WHERE Id = ?',$credentials)->fetchArray();</code>
+</pre>
+<?php
+
 $credentials = array(1);
 $account = $this->db->query('SELECT * FROM Accounts WHERE Id = ?',$credentials)->fetchArray();
 if ($account){
@@ -182,11 +200,15 @@ if ($account){
 
 echo "<hr />";
 /* Loop all */
-
-echo highlightText('$this->db->query(\'SELECT * FROM Accounts\')->fetchAll(function($account) {
-    echo "User gefunden Name: ". $account[\'Username\'] . "<br />";
-});')."<br />";
-
+?>
+<pre>
+    <code class="language-php">
+$this->db->query('SELECT * FROM Accounts')->fetchAll(function($account) {
+    echo "User gefunden Name: ". $account['Username'] \n;
+});
+    </code>
+</pre>
+<?php
 $this->db->query('SELECT * FROM Accounts')->fetchAll(function($account) {
     echo "User gefunden Name: ". $account['Username'] . "<br />";
 });
@@ -194,9 +216,15 @@ $this->db->query('SELECT * FROM Accounts')->fetchAll(function($account) {
 
 echo "<hr />";
 /* Get Count */
+?>
+<pre>
+    <code class="language-php">
 $accounts = $this->db->query('SELECT * FROM Accounts');
-echo highlightText('$accounts = $this->db->query(\'SELECT * FROM Accounts\');
-echo "Accounts in Database: ".$accounts->numRows();')."<br />";
+echo "Accounts in Database: ".$accounts->numRows();
+    </code>
+</pre>
+<?php
+$accounts = $this->db->query('SELECT * FROM Accounts');
 echo "Accounts in Database: ".$accounts->numRows();
 
 echo "<hr />";
@@ -206,3 +234,8 @@ $lastinsert = $this->db->lastInsertID();
 echo "<br />Letze insert ID: " . ($lastinsert == 0 ? "Kein INSERT ausgeführt daher 0" : "Letze Insert ID: ".$lastinsert);
 
 echo "<br /><hr />Quellcode dieser Seite <a href='https://github.com/BitDEVil2K16/PHP_Class_Framework/blob/84b0dbe9aa2b2c5a00ecf1575a6644fd78327bc4/pages/cool/home.php#L1' target='_blank' rel='noreferrer'>direklink zum Git</a>";
+
+
+?>
+
+
