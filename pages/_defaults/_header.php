@@ -17,6 +17,18 @@ if (defined(DEBUG) && DEBUG){
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link rel="stylesheet" href="<?= BaseUrl('core/css/mainstyle.css?v=0.0.6')?>" />
     <link rel="stylesheet" href="<?= BaseUrl('core/css/public/'.$this->style->Style.'.css?v='.$this->style->Version)?>" />
+    <style>
+        .h3{
+            font-size: 20px !important;
+        }
+        a{
+            text-decoration: none;
+            color: #40A4F3;
+        }
+        a:visited{
+            color: #40A4F3;
+        }
+    </style>
     <?= $this->anjascript->jQuery() ?>
     <?= $this->anjascript->jQueryUi() ?>
     <style>

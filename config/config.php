@@ -25,3 +25,20 @@ $config['cookie_path']		= '/';
 $config['cookie_secure']	= true;
 $config['cookie_httponly'] 	= true;
 
+$config['databases'] = [
+    'default' => [
+        'hostname' => 'localhost',
+        'username' => 'TestUser',
+        'password' => 'l6b23Id8vALu4iFO5oSELEwiMiQate',
+        'database' => 'OpenSourceProject',
+        'charset' => 'utf8mb4'
+    ],
+    'meinproject' => [
+        'hostname' => 'localhost',
+        'username' => 'root',
+        'password' => 'Ultr4Str0nGP4ssw0rd',
+        'database' => 'MeinProject',
+        'charset' => 'utf8mb4'
+    ]
+];
+

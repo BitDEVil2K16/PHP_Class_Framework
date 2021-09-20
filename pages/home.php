@@ -1,15 +1,4 @@
-<style>
-    .h3{
-        font-size: 20px !important;
-    }
-    a{
-        text-decoration: none;
-        color: #40A4F3;
-    }
-    a:visited{
-        color: #40A4F3;
-    }
-</style>
+
 <div class="centerflex h3" style="height: 100px; overflow: hidden">
     <div>Hallo hier werden wir dan als Nächstes mal ein Template einbinden damit wir ein wenig Frontend Haben!</div>
     <div id="hiddenpart" class="hiddeblock">

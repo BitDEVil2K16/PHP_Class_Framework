@@ -53,11 +53,7 @@ class MainCore extends Extender{
             $this->cache = $cacheinstance;
         }
 
-        $dbhost = 'localhost';
-        $dbuser = 'root';
-        $dbpass = '';
-        $dbname = 'test';
-        //$this->db = new Database($dbhost, $dbuser, $dbpass, $dbname);
+        $this->db = new Database(config_item('databases')['default']);
 
         /* Load Function Classes */
         foreach (is_loaded() as $var => $class)

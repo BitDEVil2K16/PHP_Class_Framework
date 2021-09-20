@@ -98,9 +98,111 @@ if (!function_exists('getFlagArrays')) {
         return $CachedString->get()[$type] ?? array();
     }
 }
+if (!function_exists('highlightText')) {
+    /**
+     * @param $text
+     * @param string $fileExt
+     * @return array|string|string[]|null
+     */
+    function highlightText($text, string $fileExt = "php")
+    {
+        if ($fileExt == "php") {
+            ini_set("highlight.comment", "#008000");
+            ini_set("highlight.default", "#666");
+            ini_set("highlight.html", "#808080");
+            ini_set("highlight.keyword", "#666; font-weight: bold");
+            ini_set("highlight.string", "#DD0000");
+        } else if ($fileExt == "html") {
+            ini_set("highlight.comment", "green");
+            ini_set("highlight.default", "#CC0000");
+            ini_set("highlight.html", "#000000");
+            ini_set("highlight.keyword", "black; font-weight: bold");
+            ini_set("highlight.string", "#0000FF");
+        }
+        $text = trim($text);
+        $text = highlight_string("<?php " . $text, true);
+        $text = trim($text);
+        $text = preg_replace("|^\\<code\\>\\<span style\\=\"color\\: #[a-fA-F0-9]{0,6}\"\\>|", "", $text, 1);
+        $text = preg_replace("|\\</code\\>\$|", "", $text, 1);
+        $text = trim($text);
+        $text = preg_replace("|\\</span\\>\$|", "", $text, 1);
+        $text = trim($text);
+        return preg_replace("|^(\\<span style\\=\"color\\: #[a-fA-F0-9]{0,6}\"\\>)(&lt;\\?php&nbsp;)(.*?)(\\</span\\>)|", "\$1\$3\$4", $text);
+    }
+}
+
+
 $flaguint = $flagarg ?? 49;
 $flagtypearg = $flagtypearg ?? 'animation';
-echo "<hr /><br />Convert UINT($flaguint) Back to Bits<br /><br />";
+$rdm = rand(38,56458);
+echo "<hr /><br />Convert <span style='color: lime'>UINT</span>(<span style='color: #0b93d5'>$flaguint</span>) Back to Bits<br />
+Anderes Flag testen? dann füge es an die URL an beispiel: <a href='".BaseUrl('cool/'.$rdm)."' target='_top' rel='noreferrer'>".BaseUrl('cool/'.$rdm)."</a><br />";
 foreach (convertuinttobits($flaguint) as $flag) {
     echo "Bit: <span style='color: #40A4F3'>$flag</span> ist ".getFlagName($flag, $flagtypearg)."<br />";
 }
+echo "<hr />";
+echo "<br /><br />>Database Test<br />";
+
+echo "<u>Für diesen test haben wir eine Datenbank angelgt und eine Tabelle erstellt</u>:<br />
+<pre>CREATE TABLE `Accounts` (
+	`Id` INT(11) NOT NULL AUTO_INCREMENT,
+	`Username` VARCHAR(50) NOT NULL DEFAULT '0' COLLATE 'latin1_swedish_ci',
+	`Password` VARCHAR(50) NOT NULL DEFAULT '0' COLLATE 'latin1_swedish_ci',
+	`Salt` VARCHAR(50) NOT NULL DEFAULT '0' COLLATE 'latin1_swedish_ci',
+	`CreateAt` DATETIME NOT NULL,
+	`UpdateAt` DATETIME NOT NULL,
+	`LastLogin` DATETIME NOT NULL,
+	`LoginToken` VARCHAR(250) NOT NULL DEFAULT '' COLLATE 'latin1_swedish_ci',
+	PRIMARY KEY (`Id`) USING BTREE
+)
+COLLATE='latin1_swedish_ci'
+ENGINE=InnoDB;</pre>
+
+<u>Ebenfals haben wir ein TestUser angelegt</u>:<pre>
+INSERT INTO `Accounts` (`Id`, `Username`, `Password`, `Salt`, `CreateAt`, `UpdateAt`, `LastLogin`, `LoginToken`) 
+VALUES 
+(1, 'DerTester', 'BohNeEyWirklich', 'DasIstNice', '2021-09-20 09:45:44', '2021-09-20 09:45:45', '2021-09-20 09:45:46', 'HaHaHaLULCheckCookie? Nope');
+</pre>
+Und nun folgen die Ausgaben:<br /><br />
+";
+
+
+echo "<hr />";
+/* Normal Quest */
+echo highlightText('$credentials = array(1);
+$account = $this->db->query(\'SELECT * FROM Accounts WHERE Id = ?\',$credentials)->fetchArray();')."<br />";
+$credentials = array(1);
+$account = $this->db->query('SELECT * FROM Accounts WHERE Id = ?',$credentials)->fetchArray();
+if ($account){
+    echo "User Account Found: <br /><pre>";
+    print_r($account);
+    echo "</pre><br />";
+}
+
+
+echo "<hr />";
+/* Loop all */
+
+echo highlightText('$this->db->query(\'SELECT * FROM Accounts\')->fetchAll(function($account) {
+    echo "User gefunden Name: ". $account[\'Username\'] . "<br />";
+});')."<br />";
+
+$this->db->query('SELECT * FROM Accounts')->fetchAll(function($account) {
+    echo "User gefunden Name: ". $account['Username'] . "<br />";
+});
+
+
+echo "<hr />";
+/* Get Count */
+$accounts = $this->db->query('SELECT * FROM Accounts');
+echo highlightText('$accounts = $this->db->query(\'SELECT * FROM Accounts\');
+echo "Accounts in Database: ".$accounts->numRows();')."<br />";
+echo "Accounts in Database: ".$accounts->numRows();
+
+echo "<hr />";
+echo "Gesamt anzahl der DB Querys : ".$this->db->query_count;
+
+$lastinsert = $this->db->lastInsertID();
+echo "<br />Letze insert ID: " . ($lastinsert == 0 ? "Kein INSERT ausgeführt daher 0" : "Letze Insert ID: ".$lastinsert);
+
+echo "<br /><hr />Quellcode dieser Seite <a href='https://github.com/BitDEVil2K16/PHP_Class_Framework/blob/84b0dbe9aa2b2c5a00ecf1575a6644fd78327bc4/pages/cool/home.php#L1' target='_blank' rel='noreferrer'>direklink zum Git</a>";

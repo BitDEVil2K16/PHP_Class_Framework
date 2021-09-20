@@ -16,7 +16,6 @@ class Cool extends MainCore{
         if ($argone != 0){
             $data['flagarg'] = $argone;
         }
-        
         $data['flagtypearg'] = $argtwo;
         $this->LoadView("_defaults/_header", $dataheader);
         $this->LoadView("cool/home", $data);
