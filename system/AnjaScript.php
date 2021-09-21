@@ -34,14 +34,19 @@ class AnjaScript{
 
     function jQueryUi($version = '1.12.1', $style = "sunny"): string
     {
-        return '<script defer src="https://code.jquery.com/ui/'.$version.'/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>'.PHP_EOL.
-            '    <link  rel=stylecheat as=style href="https://code.jquery.com/ui/'.$version.'/themes/'.$style.'/jquery-ui.css" />'.PHP_EOL;
+        return '<script defer src="https://code.jquery.com/ui/'.$version.'/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script> 
+    <link rel="stylecheat" as="style" href="https://code.jquery.com/ui/'.$version.'/themes/'.$style.'/jquery-ui.css" />'.PHP_EOL;
     }
-    function higlightjs($version = '11.2.0', $style = "dracula"): string
+    function higlightjscdn($version = '11.2.0', $style = "default"): string
     {
-        return '<link rel="stylesheet" as="style" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/'.$version.'/styles/default.min.css">
-    <script defer src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/'.$version.'/highlight.min.js"></script>
-    <link rel="stylesheet" as="style" href="'.BaseUrl('core/css/highligterthemes/'.$style.'.css?v=0.0.1').'" />'.PHP_EOL;
+        return '<link rel="stylesheet" as="style" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/'.$version.'/styles/'.$style.'.min.css">
+    <script defer src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/'.$version.'/highlight.min.js"></script>'.PHP_EOL;
+    }
+
+    function higlightjs($style = "dracula"): string
+    {
+        return '<link rel="stylesheet" as="style" href="'.BaseUrl('plugins/highlightjs/styles/'.$style.'.min.css?v=0.0.1').'">
+    <script defer src="'.BaseUrl('plugins/highlightjs/highlight.min.js').'"></script>'.PHP_EOL;
     }
 
 }

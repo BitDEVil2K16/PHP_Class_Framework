@@ -32,8 +32,7 @@
     </style>
     <?= $this->anjascript->jQuery() ?>
     <?= $this->anjascript->jQueryUi() ?>
-    <?= $this->anjascript->higlightjs() ?>
-
+    <?= $this->anjascript->higlightjs('github-dark-dimmed') ?>
     <style>
         /* Inline Style / Styleoverwrites */
         .hiddeblock {
