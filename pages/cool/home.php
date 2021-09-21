@@ -3,7 +3,7 @@
 $jo = $bla ?? false;
 if (!$jo){
     echo $testnon ?? "Hmmm";
-    echo "<hr style='height: 2px; left: 0;' />";
+    echo "<hr style='height: .1em; left: 0;' />";
     if (isset($blaarray))
         print_r($blaarray);
     echo "<br />";
@@ -17,9 +17,14 @@ if (!$jo){
         $CachedString->set($test)->expiresAfter(600*60);
         $this->cache->save($CachedString);
     }
+    $minuten = 600;
+    $sekunden = $minuten*60;
+    $stunden = $minuten/60;
+    $stundenformat = floor($minuten/60).':'.(strlen(($minuten%60)) == 1 ? '0'.($minuten%60) : ($minuten%60)). " Stunden";
+
     $ctest = $CachedString->get();
     //$this->cache->deleteItem("starttime");
-    echo "Cachetime auf 10 Minuten gesetzt<br />";
+    echo "Cachetime auf ".$minuten." Minuten aka ".$stundenformat." gesetzt<br />";
     echo $ctest ." <-- Cache Test läuft ab am: " . $CachedString->getExpirationDate()->format('d.m.Y H:i:s');
     echo "<br />Project exist since: " . ontime('2021-09-15 04:25:12') . "<br />";
 }

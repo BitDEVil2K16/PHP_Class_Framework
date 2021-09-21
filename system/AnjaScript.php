@@ -11,7 +11,7 @@
  *
  */
 class AnjaScript{
-    private $_test = "Nice";
+    protected $_test = "Nice";
     public $test;
 
     function __construct()
@@ -27,7 +27,7 @@ class AnjaScript{
      * @param string $version
      * @return string
      */
-    function jQuery($version = '3.6.0'): string
+    function jQuery(string $version = '3.6.0'): string
     {
         return '<script defer src="https://code.jquery.com/jquery-'.$version.'.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>'.PHP_EOL;
     }
@@ -39,9 +39,9 @@ class AnjaScript{
     }
     function higlightjs($version = '11.2.0', $style = "dracula"): string
     {
-        return '<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/'.$version.'/styles/default.min.css">
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/'.$version.'/highlight.min.js"></script>
-    <link rel="stylesheet" href="'.BaseUrl('core/css/highligterthemes/'.$style.'.css?v=0.0.1').'" />'.PHP_EOL;
+        return '<link rel="stylesheet" as="style" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/'.$version.'/styles/default.min.css">
+    <script defer src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/'.$version.'/highlight.min.js"></script>
+    <link rel="stylesheet" as="style" href="'.BaseUrl('core/css/highligterthemes/'.$style.'.css?v=0.0.1').'" />'.PHP_EOL;
     }
 
 }
