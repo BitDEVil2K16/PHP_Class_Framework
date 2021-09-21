@@ -8,6 +8,9 @@
  * @FileName: LoadingHelper.php
  *
  */
+//error_reporting(E_ALL);
+//ini_set('ignore_repeated_errors', TRUE);
+//ini_set('display_errors', TRUE);
 if (!function_exists('InjectClass')){
     /**
      * @param $class
@@ -50,45 +53,31 @@ if (!function_exists('InjectClass')){
             } else {
                 if (!method_exists($app, 'index')) {
                     $data['errormessage'] = "Index not Found";
-                    $base->LoadView("_defaults/_header");
-                    $base->LoadView("_defaults/_error", $data);
-                    $base->LoadView("_defaults/_footer");
+                    $datah['title'] = "Error Page";
+                    $ww = new MainCore();
+                    $ww->LoadView("_defaults/_header", $datah);
+                    $ww->LoadView("_defaults/_error", $data);
+                    $ww->LoadView("_defaults/_footer");
                 }
                 array_shift($dta);
                 $fnc = array_key_exists(0, $dta) ? $dta[0] : 'index';
+
                 if (!method_exists($app, $fnc)) {
                     if ($app->$fnc()) {
-
                     } else {
                         try {
                             $elements = [];
                             foreach ($dta as $element) {
                                 $elements[] = $element;
                             }
-                            switch (count($elements)) {
-                                case 1:
-                                    $app->index($elements[0]);
-                                    break;
-                                case 2:
-                                    $app->index($elements[0], $elements[0]);
-                                    break;
-                                case 3:
-                                    $app->index($elements[0], $elements[0], $elements[0]);
-                                    break;
-                                case 4:
-                                    $app->index($elements[0], $elements[0], $elements[0], $elements[0]);
-                                    break;
-                                default:
-                                    $app->index();
-                                    break;
-                            }
-
+                            $app->index(...$elements);
                         } catch (Exception $exception) {
-                            $data['errormessage'] = "Methode is not Defined";
-                            $data['Exception'] = $exception;
-                            $base->LoadView("_defaults/_header");
-                            $base->LoadView("_defaults/_error", $data);
-                            $base->LoadView("_defaults/_footer");
+                            $datah['title'] = "Error Page";
+                            $data['errormessage'] = $exception;
+                            $ww = new MainCore();
+                            $ww->LoadView("_defaults/_header", $datah);
+                            $ww->LoadView("_defaults/_error", $data);
+                            $ww->LoadView("_defaults/_footer");
                         }
                     }
                 }
@@ -97,30 +86,16 @@ if (!function_exists('InjectClass')){
                 foreach ($dta as $element) {
                     $elements[] = $element;
                 }
-                switch (count($elements)) {
-                    case 1:
-                        $app->$fnc($elements[0]);
-                        break;
-                    case 2:
-                        $app->$fnc($elements[0], $elements[0]);
-                        break;
-                    case 3:
-                        $app->$fnc($elements[0], $elements[0], $elements[0]);
-                        break;
-                    case 4:
-                        $app->$fnc($elements[0], $elements[0], $elements[0], $elements[0]);
-                        break;
-                    default:
-                        $app->$fnc();
-                        break;
-                }
+                $app->$fnc(...$elements);
             }
         }else{
-            if (!class_exist($_class, false)){
+            if (!class_exists($_class, false)){
                 $data['errormessage'] = "Class not Exist";
-                $base->LoadView("_defaults/_header");
-                $base->LoadView("_defaults/_error", $data);
-                $base->LoadView("_defaults/_footer");
+                $datah['title'] = "Error Page";
+                $ww = new MainCore();
+                $ww->LoadView("_defaults/_header", $datah);
+                $ww->LoadView("_defaults/_error", $data);
+                $ww->LoadView("_defaults/_footer");
                 exit;
             }
             $base->LoadView("_defaults/_header");

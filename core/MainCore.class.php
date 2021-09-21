@@ -102,16 +102,16 @@ class MainCore extends Extender{
         //$this->style->SetStyle(config_item('style'));
 
         $datas['data'] = $data;
+        if (gettype($datas['data']) != "string"){
+            foreach ($datas['data'] as $key => $value){
+                $$key = $value;
+            }
+        }
         $page = str_replace(array(".php", "-"),"",$page);
         if (file_exists($_SERVER['DOCUMENT_ROOT'] . "pages/$page.php")){
-            if (gettype($datas['data']) != "string"){
-                foreach ($datas['data'] as $key => $value){
-                    $$key = $value;
-                }
-            }
             include_once($_SERVER['DOCUMENT_ROOT'] . "pages/$page.php");
         } else {
-            //error
+            $errormessage = "File Not Found " . $page;
             include_once($_SERVER['DOCUMENT_ROOT'] . "pages/_defaults/_error.php");
         }
     }

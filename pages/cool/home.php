@@ -104,6 +104,7 @@ if (!function_exists('getFlagArrays')) {
 
 $flaguint = $flagarg ?? 49;
 $flagtypearg = $flagtypearg ?? 'animation';
+echo $flagtypearg;
 $rdm = rand(38,56458);
 echo "<hr /><br />Convert <span style='color: lime'>UINT</span>(<span style='color: #0b93d5'>$flaguint</span>) Back to Bits<br />
 Anderes Flag testen? dann füge es an die URL an beispiel: <a href='".BaseUrl('cool/'.$rdm)."' target='_top' rel='noreferrer'>".BaseUrl('cool/'.$rdm)."</a><br />";

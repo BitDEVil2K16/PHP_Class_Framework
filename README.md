@@ -26,4 +26,4 @@ Ich will versuchen den gesamten Schinken so einfach wie möglich zu gestalten
 Das Ganze ist Opensource und man kann es für sein Vorhaben anpassen wie man es Möchte!
 Vorausgesetzt man hat ein wenig Ahnung von dem, was man tut!
 
-Ps: Lass den Code für dich Arbeirten, das erleichtert einiges. :+1:
+Ps: Lass den Code für dich Arbeiten, das erleichtert einiges. :+1:
