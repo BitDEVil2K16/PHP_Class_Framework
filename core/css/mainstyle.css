@@ -51,3 +51,8 @@ html{
 ::-webkit-scrollbar-corner {
     background-color: transparent;
 }
+/* Firefox */
+:root{
+    scrollbar-color: dodgerblue #000 !important;
+    scrollbar-width: thin !important;
+}
