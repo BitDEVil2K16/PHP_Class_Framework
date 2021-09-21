@@ -144,7 +144,12 @@ echo "<hr />";
 ?>
 <pre>
     <code class="language-php">$credentials = array(1);
-$account = $this->db->query('SELECT * FROM Accounts WHERE Id = ?',$credentials)->fetchArray();</code>
+$account = $this->db->query('SELECT * FROM Accounts WHERE Id = ?',$credentials)->fetchArray();
+if ($account){
+    echo "User Account Found: <br /><pre>";
+    print_r($account);
+    echo "</pre><br />";
+}</code>
 </pre>
 <?php
 
@@ -162,12 +167,12 @@ echo "<hr />";
 ?>
 <pre>
     <code class="language-php">$this->db->query('SELECT * FROM Accounts')->fetchAll(function($account) {
-    echo "User gefunden Name: ". $account['Username'] \n;
+    echo "User gefunden Name: ". $account['Username']. "<br />";
 });</code>
 </pre>
 <?php
 $this->db->query('SELECT * FROM Accounts')->fetchAll(function($account) {
-    echo "User gefunden Name: ". $account['Username'] . "<br />";
+    echo "User gefunden Name: ". $account['Username'] . "<br /> ";
 });
 
 
