@@ -26,3 +26,28 @@ html{
     width: 450px;
     height: 50px;
 }
+
+/* scrollbar style */
+::-webkit-scrollbar {
+    width: 3px;
+    height: 4px;
+    margin: 150px !important;
+}
+
+::-webkit-scrollbar-track {
+    background: #fff;
+}
+::-webkit-scrollbar-thumb {
+    background: dodgerblue;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #000;
+}
+::-webkit-scrollbar-button {
+    width: 0;
+    height: 0;
+    display: none;
+}
+::-webkit-scrollbar-corner {
+    background-color: transparent;
+}

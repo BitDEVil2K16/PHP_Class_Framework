@@ -152,7 +152,6 @@ if ($account){
 }</code>
 </pre>
 <?php
-
 $credentials = array(1);
 $account = $this->db->query('SELECT * FROM Accounts WHERE Id = ?',$credentials)->fetchArray();
 if ($account){
@@ -160,8 +159,6 @@ if ($account){
     print_r($account);
     echo "</pre><br />";
 }
-
-
 echo "<hr />";
 /* Loop all */
 ?>
@@ -179,15 +176,29 @@ $this->db->query('SELECT * FROM Accounts')->fetchAll(function($account) {
 echo "<hr />";
 /* Get Count */
 ?>
+<?php
+$code = '$accounts = $this->db->query(\'SELECT * FROM Accounts\');
+echo "Accounts in Database: ".$accounts->numRows();
+';
+?>
 <pre>
-    <code class="language-php">$accounts = $this->db->query('SELECT * FROM Accounts');
-echo "Accounts in Database: ".$accounts->numRows();</code>
+    <code class="php"><?php echo htmlspecialchars( $code ); ?></code>
 </pre>
 <?php
 $accounts = $this->db->query('SELECT * FROM Accounts');
 echo "Accounts in Database: ".$accounts->numRows();
-
 echo "<hr />";
+
+$code = 'echo "Gesamt anzahl der DB Querys : ".$this->db->query_count;
+$lastinsert = $this->db->lastInsertID();
+echo "<br />Letze insert ID: " . ($lastinsert == 0 ? "Kein INSERT ausgeführt daher 0" : "Letze Insert ID: ".$lastinsert);
+echo "<br /><hr />Quellcode dieser Seite <a href=\'https://github.com/BitDEVil2K16/PHP_Class_Framework/blob/main/pages/cool/home.php#L1\' target=\'_blank\' rel=\'noreferrer\'>direklink zum Git</a>";
+';
+?>
+<pre>
+    <code class="language-php"><?php echo htmlspecialchars( $code ); ?></code>
+</pre>
+<?php
 echo "Gesamt anzahl der DB Querys : ".$this->db->query_count;
 
 $lastinsert = $this->db->lastInsertID();
@@ -195,6 +206,5 @@ echo "<br />Letze insert ID: " . ($lastinsert == 0 ? "Kein INSERT ausgeführt da
 
 echo "<br /><hr />Quellcode dieser Seite <a href='https://github.com/BitDEVil2K16/PHP_Class_Framework/blob/main/pages/cool/home.php#L1' target='_blank' rel='noreferrer'>direklink zum Git</a>";
 
-?>
 
 
