@@ -161,11 +161,9 @@ echo "<hr />";
 /* Loop all */
 ?>
 <pre>
-    <code class="language-php">
-$this->db->query('SELECT * FROM Accounts')->fetchAll(function($account) {
+    <code class="language-php">$this->db->query('SELECT * FROM Accounts')->fetchAll(function($account) {
     echo "User gefunden Name: ". $account['Username'] \n;
-});
-    </code>
+});</code>
 </pre>
 <?php
 $this->db->query('SELECT * FROM Accounts')->fetchAll(function($account) {
@@ -177,10 +175,8 @@ echo "<hr />";
 /* Get Count */
 ?>
 <pre>
-    <code class="language-php">
-$accounts = $this->db->query('SELECT * FROM Accounts');
-echo "Accounts in Database: ".$accounts->numRows();
-    </code>
+    <code class="language-php">$accounts = $this->db->query('SELECT * FROM Accounts');
+echo "Accounts in Database: ".$accounts->numRows();</code>
 </pre>
 <?php
 $accounts = $this->db->query('SELECT * FROM Accounts');

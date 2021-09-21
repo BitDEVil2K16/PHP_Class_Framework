@@ -32,12 +32,14 @@
     </style>
     <?= $this->anjascript->jQuery() ?>
     <?= $this->anjascript->jQueryUi() ?>
-    <?= $this->anjascript->higlightjs('github-dark-dimmed') ?>
+    <?= $this->anjascript->higlightjs('github-dark') ?>
     <style>
         /* Inline Style / Styleoverwrites */
         .hiddeblock {
             display: none;
         }
+        .hljs-ln-numbers {-webkit-touch-callout: none !important; -webkit-user-select: none !important; -khtml-user-select: none !important; -moz-user-select: none !important; -ms-user-select: none !important; user-select: none !important; text-align: center !important; color: #ccc !important; border-right: 1px solid #CCC !important; vertical-align: top !important; padding-right: 5px !important; }
+        .hljs-ln-code {padding-left: 12px !important; }
     </style>
 </head>
 
