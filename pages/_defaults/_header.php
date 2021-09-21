@@ -1,10 +1,11 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
-
-if (defined(DEBUG) && DEBUG){
-    error_reporting(E_ALL);
-    ini_set('display_errors', '1');
-}
-
+    if (defined('DEBUG') && DEBUG){
+        error_reporting(E_ALL);
+        ini_set('ignore_repeated_errors', TRUE);
+        ini_set('display_errors', TRUE);
+        ini_set('log_errors', TRUE);
+        ini_set('error_log', BASEPATH.'logs/PHP_ERROR-'.date('Y-m-d').'-error.log');
+    }
 ?>
 <!DOCTYPE html>
 <html lang="de" style="background: #333; color: #999">

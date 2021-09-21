@@ -115,6 +115,7 @@ class Database {
 
     public function error($error) {
         if ($this->show_errors) {
+            error_log("Database Error: ".$error.PHP_EOL, 3, BASEPATH.'logs/DB-Class-'.date('Y-m-d').'-error.log');
             return $error;
         }
     }

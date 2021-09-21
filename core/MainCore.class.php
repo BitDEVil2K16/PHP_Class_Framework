@@ -17,7 +17,9 @@ CacheManager::setDefaultConfig(new Config([
     "itemDetailedDate" => false
 ]));
 $cacheinstance = CacheManager::getInstance('files');
-
+//error_reporting(E_ALL);
+//ini_set('ignore_repeated_errors', TRUE);
+//ini_set('display_errors', TRUE);
 class MainCore extends Extender{
     private static $instance;
     public $db;
@@ -25,6 +27,7 @@ class MainCore extends Extender{
     public $config;
     public $cookiemanager;
     public $cache;
+    public $logger;
 
     public function __construct()
     {
@@ -52,8 +55,33 @@ class MainCore extends Extender{
         if ($this->cache == null){
             $this->cache = $cacheinstance;
         }
-
+        $logLevels = array(
+        0 => 'EMERGENCY',
+        1 => 'ALERT',
+        2 => 'CRITICAL',
+        3 => 'ERROR',
+        4 => "WARNING",
+        5 => 'NOTICE',
+        6 => 'INFO',
+        7 => 'DEBUG'
+        );
+        if (defined('LOG') && LOG){
+            $logoptions = array (
+                'extension' => 'log',
+                'dateFormat' => 'd.m.Y H:i:s',
+                'prefix' => strtolower($logLevels[(defined('LOGLVL') ? LOGLVL : 7)]).'_'
+            );
+            $this->logger = new Logger(BASEPATH.'logs',(defined('LOGLVL') ? LOGLVL : 7), $logoptions);
+        } else {
+            $logoptions = array (
+                'extension' => 'log',
+                'dateFormat' => 'd.m.Y H:i:s',
+                'prefix' => strtolower($logLevels[0]).'_'
+            );
+            $this->logger = new Logger(BASEPATH.'logs',0,$logoptions);
+        }
         $this->db = new Database(config_item('databases')['default']);
+
 
         /* Load Function Classes */
         foreach (is_loaded() as $var => $class)

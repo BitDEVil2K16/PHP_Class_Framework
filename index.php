@@ -8,7 +8,7 @@
  * @FileName: index.php
  *
  */
-const DEBUG = true;
+const DEBUG = TRUE;
 const BASEPATH = __DIR__ . '/';
 const APPPATH = __FILE__ ;
 const BASEURL = 'https://dev.bitdevil2k16.club/';
@@ -21,10 +21,6 @@ if (empty($page)) $page = "home";
 
 foreach(glob("core/*.class.php") as $class){
     include_once($class);
-}
-if (defined(DEBUG) && DEBUG){
-    error_reporting(E_ALL);
-    ini_set('display_errors', '1');
 }
 
 $base = new MainCore();

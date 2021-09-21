@@ -9,7 +9,17 @@
  *
  */
 ob_start();
-
+const LOG = TRUE;
+/*
+1 => ALERT
+2 => CRITICAL
+3 => ERROR
+4 => WARNING
+5 => NOTICE
+6 => INFO
+7 => DEBUG
+*/
+const LOGLVL = 3;
 $url = (isset($_SERVER['HTTPS']) ? "https://" : "http://");
 $url .= $_SERVER['HTTP_HOST']. str_replace(basename($_SERVER['SCRIPT_NAME']),"",$_SERVER['SCRIPT_NAME']);
 $config['base_url'] = $url;

@@ -12,19 +12,17 @@ if (!$jo){
     $CachedString = $this->cache->getItem($key);
     $ctest = "";
     if (is_null($CachedString->get())) {
-        $test = "Project exist since: " . ontime($startproject->format('d.m.Y h:i:s'));
+        $test = "Project exist since: " . ontime($startproject->format('d.m.Y H:i:s'));
         $testarray = array(1 => "15", 2 => date('s'));
-        $CachedString->set($test)->expiresAfter(600);
+        $CachedString->set($test)->expiresAfter(600*60);
         $this->cache->save($CachedString);
     }
     $ctest = $CachedString->get();
     //$this->cache->deleteItem("starttime");
     echo "Cachetime auf 10 Minuten gesetzt<br />";
-    echo $ctest ." <-- Cache Test läuft ab am: " . $CachedString->getExpirationDate()->format('d.m.Y h:i:s');
+    echo $ctest ." <-- Cache Test läuft ab am: " . $CachedString->getExpirationDate()->format('d.m.Y H:i:s');
     echo "<br />Project exist since: " . ontime('2021-09-15 04:25:12') . "<br />";
 }
-
-
 
 if (!function_exists('convertuinttobits')) {
     /**
@@ -190,7 +188,6 @@ $lastinsert = $this->db->lastInsertID();
 echo "<br />Letze insert ID: " . ($lastinsert == 0 ? "Kein INSERT ausgeführt daher 0" : "Letze Insert ID: ".$lastinsert);
 
 echo "<br /><hr />Quellcode dieser Seite <a href='https://github.com/BitDEVil2K16/PHP_Class_Framework/blob/main/pages/cool/home.php#L1' target='_blank' rel='noreferrer'>direklink zum Git</a>";
-
 
 ?>
 
