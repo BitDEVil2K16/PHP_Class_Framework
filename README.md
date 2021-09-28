@@ -18,6 +18,13 @@ Requirements:
     <?= $this->anjascript->jQueryUi() ?>
     // Würde Jquery und jQueryUi in der Heute Aktuellsten Version verlinken 
     // und damit im gesamten System nutzbar machen
+    <?= $this->anjascript->higlightjs('github-dark-dimmed') ?>
+    // Die zusatz angabe ist der Skin der genutzt werden soll für HiglightJs
+    // Weitere angaben sind auch bei Jquery und Co verfügbar
+    // Da ist es bei JqueryUi nur minimal anders es würde die version und skin benötigen
+    // Beispiele:
+    <?= $this->anjascript->jQuery('3.6.0') ?>
+    <?= $this->anjascript->jQueryUi('1.12.1','sunny') ?>
 ```
 
 Eine ausfürliche Anleitungen / Wiki und so weiter folgen nach und nach!
