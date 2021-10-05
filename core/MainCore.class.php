@@ -12,8 +12,12 @@ require BASEPATH.'vendor/autoload.php';
 use Phpfastcache\CacheManager;
 use Phpfastcache\Config\Config;
 use Phpfastcache\Core\phpFastCache;
+$cachefolder = BASEPATH.'cache';
+if ( !file_exists($cachefolder)) {
+    mkdir($cachefolder, 0777, true);
+}
 CacheManager::setDefaultConfig(new Config([
-    "path" => sys_get_temp_dir(),
+    "path" => BASEPATH.'cache',
     "itemDetailedDate" => false
 ]));
 $cacheinstance = CacheManager::getInstance('files');
