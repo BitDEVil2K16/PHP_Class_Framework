@@ -53,16 +53,44 @@ if (!function_exists('sortBy')) {
         return true;
     }
 }
+if (!function_exists('getdifferenz')) {
+    /**
+     * @param $sekunden
+     * @return string (Tege bla...)
+     */
+    function getdifferenz($sekunden): string
+    {
+        $timeUnits = array(
+            31536000 => array('Jahr', 'Jahren'),
+            2592000 => array('Monat', 'Monate'),
+            604800 => array('Woche', 'Wochen'),
+            86400 => array('Tag', 'Tage'),
+            3600 => array('Stunde', 'Stunden'),
+            60 => array('Minute', 'Minuten'),
+            1 => array('Sekunde', 'Sekunden')
+        );
+
+        $humanTiming = "";
+        foreach ($timeUnits as $unit => $text) {
+            if ($sekunden < $unit)
+                continue;
+            $numberOfUnits = floor($sekunden / $unit);
+            $humanTiming = $humanTiming . ' ' . $numberOfUnits . ' ' . (($numberOfUnits > 1) ? $text[1] : $text[0]);
+            $sekunden -= $unit * $numberOfUnits;
+        }
+        return $humanTiming;
+    }
+}
 
 /* Run since */
-if (!function_exists('ontime')) {
+if (!function_exists('lifetime')) {
     /**
      * @param $starttime
      * @param string $timezone
      * @return string
      * @throws Exception
      */
-    function ontime($starttime, string $timezone = 'Europe/Berlin'): string
+    function lifetime($starttime, string $timezone = 'Europe/Berlin'): string
     {
         $timezz = $starttime;
         $start = strtotime($timezz);
