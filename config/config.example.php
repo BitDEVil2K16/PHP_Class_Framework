@@ -6,7 +6,7 @@
  * @author BitDEVil2K16 Club https://bitdevil2k16.club
  * @github https://github.com/BitDEVil2K16
  * @FileName: config.php
- * gitignore
+ *
  */
 ob_start();
 const LOG = TRUE;
