@@ -40,12 +40,16 @@ foreach (convertuinttobits($flaguint) as $flag) {
 echo "<hr />";
 ?>
     <pre>
-    <code class="language-php">echo "Uint as Hex: <span style='color: lime'>2519455989</span> -> ".UintToHex(2519455989)."<br />";
-echo "Hex as Uint: <span style='color: lime'>0x962BD8F5</span> -> ".HexToUint("0x962BD8F5")."<br />";
-echo "Uint to Int: <span style='color: lime'>2519455989</span> -> ".UintToInt(2519455989)."<br />";
-echo "Int to Uint: <span style='color: lime'>-1775511307</span> -> ".IntToUint(-1775511307);</code>
+    <code class="language-php">echo "String to Hex: <span style='color: lime'>tes</span> -> " . Joaat("tes")."<br />\n";
+echo "String to Uint: <span style='color: lime'>tes</span> -> " . Joaat("tes", true)."<br />\n";
+echo "Uint as Hex: <span style='color: lime'>2519455989</span> -> ".UintToHex(2519455989)."<br />\n";
+echo "Hex as Uint: <span style='color: lime'>0x962BD8F5</span> -> ".HexToUint("0x962BD8F5")."<br />\n";
+echo "Uint to Int: <span style='color: lime'>2519455989</span> -> ".UintToInt(2519455989)."<br />\n";
+echo "Int to Uint: <span style='color: lime'>-1775511307</span> -> ".IntToUint(-1775511307)."<hr />\n";</code>
 </pre>
 <?php
+echo "String to Hex: <span style='color: lime'>tes</span> -> " . Joaat("tes")."<br />\n";
+echo "String to Uint: <span style='color: lime'>tes</span> -> " . Joaat("tes", true)."<br />\n";
 echo "Uint as Hex: <span style='color: lime'>2519455989</span> -> ".UintToHex(2519455989)."<br />\n";
 echo "Hex as Uint: <span style='color: lime'>0x962BD8F5</span> -> ".HexToUint("0x962BD8F5")."<br />\n";
 echo "Uint to Int: <span style='color: lime'>2519455989</span> -> ".UintToInt(2519455989)."<br />\n";

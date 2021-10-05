@@ -134,3 +134,22 @@ if(!function_exists('HexToUint')) {
     }
 }
 
+/**
+ * Jenkins hash function
+ * Summary: https://en.wikipedia.org/wiki/Jenkins_hash_function
+ */
+if(!function_exists('Joaat')) {
+    /**
+     * @param $value
+     * @return false|string
+     */
+    function Joaat($value,bool $uint = false)
+    {
+        $str = strtolower($value);
+        if (!$uint)
+            return "0x".strtoupper(hash('joaat', $str, false));
+        else
+            return hexdec("0x".strtoupper(hash('joaat', $str, false)));
+    }
+}
+
