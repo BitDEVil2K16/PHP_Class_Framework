@@ -136,12 +136,13 @@ if(!function_exists('HexToUint')) {
 
 /**
  * Jenkins hash function
- * Summary: https://en.wikipedia.org/wiki/Jenkins_hash_function
+ * https://en.wikipedia.org/wiki/Jenkins_hash_function
  */
 if(!function_exists('Joaat')) {
     /**
      * @param $value
-     * @return false|string
+     * @param bool $uint
+     * @return float|int|string
      */
     function Joaat($value,bool $uint = false)
     {
