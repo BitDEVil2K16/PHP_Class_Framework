@@ -11,7 +11,7 @@ class Cool extends MainCore{
         $dataheader['description'] = "Coole Tests und so weiter";
         $dataheader['metatags'] = "tests cool bitdevil2k16 club";
         $data['testnon'] = "Ein Test";
-        $data['bla'] = false;
+        $data['bla'] = true;
         $data['blaarray'] = array("a","10min");
         if (is_numeric($argone)){
             if ($argone != 0){

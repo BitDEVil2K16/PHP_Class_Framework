@@ -39,7 +39,7 @@ $flaguint = $flagarg ?? 49;
 $flagtypearg = $flagtypearg ?? 'animation';
 //echo $flagtypearg; // animationFlags Default
 $rdm = rand(38,9564589);
-echo "<hr /><br />Convert <span style='color: lime'>UINT</span>(<span style='color: #0b93d5'>$flaguint</span>) Back to Bits<br />
+echo "<hr />Convert <span style='color: lime'>UINT</span>(<span style='color: #0b93d5'>$flaguint</span>) Back to Bits<br />
 Anderes Flag testen? dann füge es an die URL an beispiel: <a href='".BaseUrl('cool/'.$rdm).'/'.$flagtypearg."' target='_top' rel='noreferrer'>".BaseUrl('cool/'.$rdm)."/$flagtypearg</a><br />";
 foreach (convertuinttobits($flaguint) as $flag) {
     echo "Bit: <span style='color: #40A4F3'>$flag</span> ist ".getFlagName($flag, $flagtypearg)."<br />";
