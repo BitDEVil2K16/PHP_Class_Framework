@@ -1,0 +1,136 @@
+{
+  "Flags" :[
+    {
+      "flag" : 0,
+      "description" : "Unk00"
+    },
+    {
+      "flag" : 1,
+      "description" : "Allow full rotation"
+    },
+    {
+      "flag" : 2,
+      "description" : "Unk02"
+    },
+    {
+      "flag" : 4,
+      "description" : "Disable embedded collision"
+    },
+    {
+      "flag" : 8,
+      "description" : "Unk04"
+    },
+    {
+      "flag" : 16,
+      "description" : "Unk05"
+    },
+    {
+      "flag" : 32,
+      "description" : "Static Entity"
+    },
+    {
+      "flag" : 64,
+      "description" : "Object isn't dark at night"
+    },
+    {
+      "flag" : 128,
+      "description" : "Unk08"
+    },
+    {
+      "flag" : 256,
+      "description" : "Unk09"
+    },
+    {
+      "flag" : 512,
+      "description" : "Disable embedded light source"
+    },
+    {
+      "flag" : 1024,
+      "description" : "Unk11"
+    },
+    {
+      "flag" : 2048,
+      "description" : "Unk12"
+    },
+    {
+      "flag" : 4096,
+      "description" : "Unk13"
+    },
+    {
+      "flag" : 8192,
+      "description" : "Unk14"
+    },
+    {
+      "flag" : 16384,
+      "description" : "Unk15"
+    },
+    {
+      "flag" : 32768,
+      "description" : "Unk16"
+    },
+    {
+      "flag" : 65536,
+      "description" : "Unk17"
+    },
+    {
+      "flag" : 131072,
+      "description" : "Unk18"
+    },
+    {
+      "flag" : 262144,
+      "description" : "Disable archetype extensions"
+    },
+    {
+      "flag" : 524288,
+      "description" : "Unk20"
+    },
+    {
+      "flag" : 1048576,
+      "description" : "Unk21"
+    },
+    {
+      "flag" : 2097152,
+      "description" : "Unk22"
+    },
+    {
+      "flag" : 4194304,
+      "description" : "Disable shadow for Entity"
+    },
+    {
+      "flag" : 8388608,
+      "description" : "Disable entity, shadow casted"
+    },
+    {
+      "flag" : 16777216,
+      "description" : "Object will not cast reflections."
+    },
+    {
+      "flag" : 33554432,
+      "description" : "Interior Proxy"
+    },
+    {
+      "flag" : 67108864,
+      "description" : "Unk27"
+    },
+    {
+      "flag" : 134217728,
+      "description" : "Reflection Proxy"
+    },
+    {
+      "flag" : 268435456,
+      "description" : "Unk29"
+    },
+    {
+      "flag" : 536870912,
+      "description" : "Mirror Proxy"
+    },
+    {
+      "flag" : 1073741824,
+      "description" : "Unk31"
+    },
+    {
+      "flag" : 2147483648,
+      "description" : "Unk32"
+    }
+  ]
+}

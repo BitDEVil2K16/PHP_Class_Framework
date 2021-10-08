@@ -6,16 +6,19 @@ class Cool extends MainCore{
         parent::__construct();
     }
 
-    public function index(int $argone = 0, string $argtwo = 'animation'){
+    public function index(string $argone = "0", string $argtwo = 'animation'){
         $dataheader['title'] = "Coole Tests";
         $dataheader['description'] = "Coole Tests und so weiter";
         $dataheader['metatags'] = "tests cool bitdevil2k16 club";
         $data['testnon'] = "Ein Test";
         $data['bla'] = false;
         $data['blaarray'] = array("a","10min");
-        if ($argone != 0){
-            $data['flagarg'] = $argone;
+        if (is_numeric($argone)){
+            if ($argone != 0){
+                $data['flagarg'] = $argone;
+            }
         }
+
         $data['flagtypearg'] = $argtwo;
         $this->LoadView("_defaults/_header", $dataheader);
         $this->LoadView("cool/home", $data);

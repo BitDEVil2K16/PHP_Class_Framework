@@ -1,0 +1,64 @@
+{
+  "Flags" :[
+    {
+      "flag" : 0,
+      "description" : "used between rooms"
+    },
+    {
+      "flag" : 1,
+      "description" : "disables exterior rendering"
+    },
+    {
+      "flag" : 2,
+      "description" : "disables interior rendering "
+    },
+    {
+      "flag" : 4,
+      "description" : "Mirror"
+    },
+    {
+      "flag" : 8,
+      "description" : "Portal will render the outside with much more bloom. Usually windows use this. [Credits to Disquse]"
+    },
+    {
+      "flag" : 16,
+      "description" : "Unk05"
+    },
+    {
+      "flag" : 32,
+      "description" : "Renders limbo as LOD. Used in the roof window of Michael's house. [Credits to DPS]"
+    },
+    {
+      "flag" : 64,
+      "description" : "Disable's portal while a door is closed as an attached entity. Note that Rockstar frequently uses this portal, even when there isn't any attached entities. May have other functions  [Credits to DPS]"
+    },
+    {
+      "flag" : 128,
+      "description" : "Unk08"
+    },
+    {
+      "flag" : 256,
+      "description" : "Enables limbo portals in mirror portal reflections, but does not enable limbo entities. [Credits to DPS]"
+    },
+    {
+      "flag" : 512,
+      "description" : "Unk10"
+    },
+    {
+      "flag" : 1024,
+      "description" : "Renders limbo entities in portal reflections. [Credits to DPS]"
+    },
+    {
+      "flag" : 2048,
+      "description" : "Unk12"
+    },
+    {
+      "flag" : 4096,
+      "description" : "Unk13"
+    },
+    {
+      "flag" : 8192,
+      "description" : "Something to do with farclipping in timecycles. [Credits to DPS] - Note from DPS: Interior timecycle farclipping gets ignored and the entire world distance is rendered"
+    }
+  ]
+}

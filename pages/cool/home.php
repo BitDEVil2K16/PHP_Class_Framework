@@ -28,12 +28,19 @@ if (!$jo){
     echo "<br />Project exist since: " . lifetime('2021-09-15 04:25:12') . "<br />";
 }
 
+//foreach (GetJsonData('flags', 'ytyp.flags', 'Flags') as $flag){
+//    echo $flag->flag." : ".$flag->description."<br>";
+//}
+//foreach (GetJsonData('flags', 'ytyp.flags', 'SpecialFlags') as $flag){
+//    echo $flag->flag." : ".$flag->description."<br>";
+//}
+
 $flaguint = $flagarg ?? 49;
 $flagtypearg = $flagtypearg ?? 'animation';
 //echo $flagtypearg; // animationFlags Default
-$rdm = rand(38,56458);
+$rdm = rand(38,9564589);
 echo "<hr /><br />Convert <span style='color: lime'>UINT</span>(<span style='color: #0b93d5'>$flaguint</span>) Back to Bits<br />
-Anderes Flag testen? dann füge es an die URL an beispiel: <a href='".BaseUrl('cool/'.$rdm)."' target='_top' rel='noreferrer'>".BaseUrl('cool/'.$rdm)."</a><br />";
+Anderes Flag testen? dann füge es an die URL an beispiel: <a href='".BaseUrl('cool/'.$rdm).'/'.$flagtypearg."' target='_top' rel='noreferrer'>".BaseUrl('cool/'.$rdm)."/$flagtypearg</a><br />";
 foreach (convertuinttobits($flaguint) as $flag) {
     echo "Bit: <span style='color: #40A4F3'>$flag</span> ist ".getFlagName($flag, $flagtypearg)."<br />";
 }

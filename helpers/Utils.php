@@ -62,7 +62,7 @@ if (!function_exists('getdifferenz')) {
     {
         $timeUnits = array(
             31536000 => array('Jahr', 'Jahren'),
-            2592000 => array('Monat', 'Monate'),
+            2592000 => array('Monat', 'Monaten'),
             604800 => array('Woche', 'Wochen'),
             86400 => array('Tag', 'Tage'),
             3600 => array('Stunde', 'Stunden'),
@@ -162,5 +162,20 @@ if (!function_exists('lifetime')) {
             }
         }
         return '' . $year . $month . $day . $hour . $min . $sec;
+    }
+}
+if (!function_exists('GetJsonData')) {
+    function GetJsonData($datadict, $file, $s = false)
+    {
+        $_ret = [];
+        if (fileExists(BaseURL("data/$datadict/$file.json"))){
+            $datadict = file_get_contents(BaseURL("data/$datadict/$file.json"));
+            if ($s) {
+                $_ret = json_decode($datadict)->$s;
+            } else {
+                $_ret = json_decode($datadict);
+            }
+        }
+        return $_ret;
     }
 }

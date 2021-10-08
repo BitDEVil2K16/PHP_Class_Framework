@@ -47,6 +47,8 @@ class MainCore extends Extender{
         /** Settings **/
         if ($this->config){
             $this->config = new Settings();
+        } else {
+            $this->config = get_config();
         }
         if ($this->cookiemanager == null){
             $this->cookiemanager = new Cookie();
@@ -60,14 +62,14 @@ class MainCore extends Extender{
             $this->cache = $cacheinstance;
         }
         $logLevels = array(
-        0 => 'EMERGENCY',
-        1 => 'ALERT',
-        2 => 'CRITICAL',
-        3 => 'ERROR',
-        4 => "WARNING",
-        5 => 'NOTICE',
-        6 => 'INFO',
-        7 => 'DEBUG'
+            0 => 'EMERGENCY',
+            1 => 'ALERT',
+            2 => 'CRITICAL',
+            3 => 'ERROR',
+            4 => "WARNING",
+            5 => 'NOTICE',
+            6 => 'INFO',
+            7 => 'DEBUG'
         );
         if (defined('LOG') && LOG){
             $logoptions = array (
@@ -85,7 +87,6 @@ class MainCore extends Extender{
             $this->logger = new Logger(BASEPATH.'logs',0,$logoptions);
         }
         $this->db = new Database(config_item('databases')['default']);
-
 
         /* Load Function Classes */
         foreach (is_loaded() as $var => $class)

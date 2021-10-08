@@ -1,0 +1,28 @@
+{
+  "Flags" :[
+    {
+      "flag" : 0,
+      "description" : "Normal"
+    },
+    {
+      "flag" : 1,
+      "description" : "Repeat"
+    },
+    {
+      "flag" : 2,
+      "description" : "Stop On Last Frame"
+    },
+    {
+      "flag" : 16,
+      "description" : "Upperbody Only"
+    },
+    {
+      "flag" : 32,
+      "description" : "Player Controlable"
+    },
+    {
+      "flag" : 120,
+      "description" : "CANCELABLE"
+    }
+  ]
+}

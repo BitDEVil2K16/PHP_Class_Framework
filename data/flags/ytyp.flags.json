@@ -1,0 +1,194 @@
+{
+  "Flags" :[
+    {
+      "flag" : 0,
+      "description" : "Unk00"
+    },
+    {
+      "flag" : 1,
+      "description" : "Unk01"
+    },
+    {
+      "flag" : 2,
+      "description" : "Unk02"
+    },
+    {
+      "flag" : 4,
+      "description" : "Unk03"
+    },
+    {
+      "flag" : 8,
+      "description" : "Unk04"
+    },
+    {
+      "flag" : 16,
+      "description" : "Unk05"
+    },
+    {
+      "flag" : 32,
+      "description" : "Static"
+    },
+    {
+      "flag" : 64,
+      "description" : "Unk07"
+    },
+    {
+      "flag" : 128,
+      "description" : "Unk08"
+    },
+    {
+      "flag" : 256,
+      "description" : "Unk09"
+    },
+    {
+      "flag" : 512,
+      "description" : "Bone anims (YCD). - [Credits to Wildbrick/Monika]"
+    },
+    {
+      "flag" : 1024,
+      "description" : "UV anims (YCD). - [Credits to Wildbrick/Monika]"
+    },
+    {
+      "flag" : 2048,
+      "description" : "Blocks lights and shadows and does not render the model. [Credits to DPS]"
+    },
+    {
+      "flag" : 4096,
+      "description" : "Unk13"
+    },
+    {
+      "flag" : 8192,
+      "description" : "dont cast shadows"
+    },
+    {
+      "flag" : 16384,
+      "description" : "Unk15"
+    },
+    {
+      "flag" : 32768,
+      "description" : "Unk16"
+    },
+    {
+      "flag" : 65536,
+      "description" : "Tree Props use this commonly, may be something to do with props that do not break on collision. [Credits to Carl Johnson]"
+    },
+    {
+      "flag" : 131072,
+      "description" : "Dynamic [Credits to Anatoly and Carl Johnson] | looks like its used for archetypes that have skeleton (mostly used for doors also in ydrs,yfts with skeleton)"
+    },
+    {
+      "flag" : 262144,
+      "description" : "Unk19"
+    },
+    {
+      "flag" : 524288,
+      "description" : "Unk20"
+    },
+    {
+      "flag" : 1048576,
+      "description" : "Unk21"
+    },
+    {
+      "flag" : 2097152,
+      "description" : "Unk22"
+    },
+    {
+      "flag" : 4194304,
+      "description" : "Unk23"
+    },
+    {
+      "flag" : 8388608,
+      "description" : "Unk24"
+    },
+    {
+      "flag" : 16777216,
+      "description" : "Unk25"
+    },
+    {
+      "flag" : 33554432,
+      "description" : "Unk26"
+    },
+    {
+      "flag" : 67108864,
+      "description" : "enables (?) special atribute for door archetypes"
+    },
+    {
+      "flag" : 134217728,
+      "description" : "Unk28"
+    },
+    {
+      "flag" : 268435456,
+      "description" : "Disable red vertex channel for object. [Credits to DPS]"
+    },
+    {
+      "flag" : 536870912,
+      "description" : "Makes archetypes with white vertexes dont glow at night. | Disable green vertex channel for object. (?) [Credits to DPS] | Props commonly use this. [Credits to Carl Johnson]"
+    },
+    {
+      "flag" : 1073741824,
+      "description" : "Disable blue vertex channel for object. [Credits to DPS]"
+    },
+    {
+      "flag" : 2147483648,
+      "description" : "Disable Alpha vertex channel for object. [Credits to DPS]"
+    }
+  ],
+  "SpecialFlags" :[
+    {
+      "flag" : 0,
+      "description" : "Special functions disabled"
+    },
+    {
+      "flag" : 1,
+      "description" : "Specify how doors will be open - slides left <-> right when player aproach"
+    },
+    {
+      "flag" : 2,
+      "description" : "Specify how doors will be open - slides left <-> right when player aproach"
+    },
+    {
+      "flag" : 3,
+      "description" : "Specify how doors will be open - slides left <-> right when player aproach"
+    },
+    {
+      "flag" : 4,
+      "description" : "Specify how doors will be open - slides left <-> right when player aproach"
+    },
+    {
+      "flag" : 5,
+      "description" : "Specify how doors will be open - up/down 90 degrees (like garage door)"
+    },
+    {
+      "flag" : 6,
+      "description" : "Specify how doors will be open - slides left <-> right when player aproach"
+    },
+    {
+      "flag" : 7,
+      "description" : "Specify how doors will be open - pushed by player"
+    },
+    {
+      "flag" : 8,
+      "description" : "Specify how doors will be open - slides left <-> right when player aproach"
+    },
+    {
+      "flag" : 9,
+      "description" : "Specify how doors will be open - doors move in contact with player in 90 degrees to left"
+    },
+    {
+      "flag" : 10,
+      "description" : "Specify how doors will be open - vertical auto move in straight line up/down when player aproach"
+    },
+    {
+      "flag" : 11,
+      "description" : "Specify how doors will be open - slides left <-> right when player aproach, doors collision dont work"
+    },
+    {
+      "flag" : 12,
+      "description" : "Specify how doors will be open - doors move in contact with player in 90 degrees to left"
+    },
+    {
+      "flag" : 13,
+      "description" : "Specify how doors will be open - slides left <-> right when player aproach, doors collision dont work"
+    }
+  ]
+}

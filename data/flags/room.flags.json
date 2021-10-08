@@ -1,0 +1,64 @@
+{
+  "Flags" :[
+    {
+      "flag" : 0,
+      "description" : "Unk00"
+    },
+    {
+      "flag" : 1,
+      "description" : "Unk01"
+    },
+    {
+      "flag" : 2,
+      "description" : "Unk02"
+    },
+    {
+      "flag" : 4,
+      "description" : "Disables shadowcasting in exterior"
+    },
+    {
+      "flag" : 8,
+      "description" : "Unk04"
+    },
+    {
+      "flag" : 16,
+      "description" : "Unk05"
+    },
+    {
+      "flag" : 32,
+      "description" : "Reduces vehicle population"
+    },
+    {
+      "flag" : 64,
+      "description" : "Reduces peds population"
+    },
+    {
+      "flag" : 128,
+      "description" : "Unk08"
+    },
+    {
+      "flag" : 256,
+      "description" : "Disables all limbo portals"
+    },
+    {
+      "flag" : 512,
+      "description" : "Unk10"
+    },
+    {
+      "flag" : 1024,
+      "description" : "Unk11"
+    },
+    {
+      "flag" : 2048,
+      "description" : "Unk12"
+    },
+    {
+      "flag" : 4096,
+      "description" : "Unk13"
+    },
+    {
+      "flag" : 8192,
+      "description" : "Unk14"
+    }
+  ]
+}

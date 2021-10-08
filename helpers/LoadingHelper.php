@@ -53,7 +53,7 @@ if (!function_exists('InjectClass')){
             } else {
                 if (!method_exists($app, 'index')) {
                     $data['errormessage'] = "Index not Found";
-                    $datah['title'] = "Error Page";
+                    $datah['title'] = "404 Error";
                     $ww = new MainCore();
                     $ww->LoadView("_defaults/_header", $datah);
                     $ww->LoadView("_defaults/_error", $data);
@@ -72,7 +72,7 @@ if (!function_exists('InjectClass')){
                             }
                             $app->index(...$elements);
                         } catch (Exception $exception) {
-                            $datah['title'] = "Error Page";
+                            $datah['title'] = "404 Error";
                             $data['errormessage'] = $exception;
                             $ww = new MainCore();
                             $ww->LoadView("_defaults/_header", $datah);
@@ -90,8 +90,8 @@ if (!function_exists('InjectClass')){
             }
         }else{
             if (!class_exists($_class, false)){
-                $data['errormessage'] = "Class not Exist";
-                $datah['title'] = "Error Page";
+                $data['errormessage'] = "Controller not Exist";
+                $datah['title'] = "404 Error";
                 $ww = new MainCore();
                 $ww->LoadView("_defaults/_header", $datah);
                 $ww->LoadView("_defaults/_error", $data);

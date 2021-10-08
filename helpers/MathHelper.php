@@ -47,21 +47,16 @@ if (!function_exists('getFlagArrays')) {
     function getFlagArrays($type): array
     {
         $key = $type."flagdatabase";
+        //get_instance()->cache->deleteItem($key);
         $CachedString = get_instance()->cache->getItem($key);
         if (!$CachedString->isHit()) {
-            $flagarray["animation"] = array(
-                0 => "Normal",
-                1 => "Repeat",
-                2 => "Stop On Last Frame",
-                16 => "Upperbody Only",
-                32 => "Player Controlable",
-                120 => "CANCELABLE"
-            );
+            $flagarray[$type] = array();
+            foreach (GetJsonData('flags', "$type.flags", 'Flags') as $flag){
+                $flagarray[$type][$flag->flag] = $flag->description;
+            }
             $CachedString->set($flagarray)->expiresAfter(10*60);
             get_instance()->cache->save($CachedString);
         }
-        //echo "Cache läuft ab: ".$CachedString->getExpirationDate()->format('d.m.Y h:i:s');
-        //echo implode("<br />",$CachedString->get()[$type]);
         return $CachedString->get()[$type] ?? array();
     }
 }
