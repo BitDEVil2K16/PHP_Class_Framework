@@ -32,6 +32,7 @@ class MainCore extends Extender{
     public $cookiemanager;
     public $cache;
     public $logger;
+    public $settings;
 
     public function __construct()
     {
@@ -50,6 +51,8 @@ class MainCore extends Extender{
         } else {
             $this->config = get_config();
         }
+        if ($this->settings == null)
+        $this->settings = new Settings();
         if ($this->cookiemanager == null){
             $this->cookiemanager = new Cookie();
             $this->cookiemanager->setDomain(config_item('cookie_domain'));
@@ -95,6 +98,10 @@ class MainCore extends Extender{
         }
         $charset = strtoupper(config_item('charset'));
         ini_set('default_charset', $charset);
+
+        load_class('AnjaScript', 'system');
+        load_class('CCPlus', 'system');
+        load_class('Style', 'system');
     }
 
     public function LoadView($page, $data = NULL){
@@ -151,3 +158,4 @@ class Extender{
         }
     }
 }
+$base = new MainCore();

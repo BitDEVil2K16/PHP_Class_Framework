@@ -119,7 +119,7 @@ class Settings {
 
         return rtrim($this->config[$item], '/').'/';
     }
-    public function site_url($uri = '', $protocol = NULL)
+    public function site_url($uri = '', $protocol = NULL): string
     {
         $base_url = $this->slash_item('base_url');
 
@@ -169,7 +169,7 @@ class Settings {
         return $base_url.$this->item('index_page').$uri;
     }
 
-    public function base_url($uri = '', $protocol = NULL)
+    public function base_url($uri = '', $protocol = NULL): string
     {
         $base_url = $this->slash_item('base_url');
 
@@ -203,10 +203,10 @@ class Settings {
         return $uri;
     }
 
-    public function system_url()
+    public function system_url(): string
     {
         $x = explode('/', preg_replace('|/*(.+?)/*$|', '\\1', BASEPATH));
-        return $this->slash_item('base_url').end($x).'/';
+        return $this->slash_item('base_url').end($x);
     }
     public function set_item($item, $value)
     {

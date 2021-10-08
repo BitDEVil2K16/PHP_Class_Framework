@@ -1,5 +1,5 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
-    if (defined('DEBUG') && DEBUG){
+    if (defined('DEBUG') && DEBUG) {
         error_reporting(E_ALL);
         ini_set('ignore_repeated_errors', TRUE);
         ini_set('display_errors', TRUE);
@@ -16,7 +16,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title><?= !isset($this->config['sitename']) ? "" : $this->config['sitename']." | " ?> <?= $title ?? "Ohne Titel" ?></title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <link rel="stylesheet" href="<?= BaseUrl('core/css/mainstyle.css?v=0.0.6')?>" />
+    <link rel="stylesheet" href="<?= BaseUrl('core/css/mainstyle.css?v=0.0.9')?>" />
     <link rel="stylesheet" href="<?= BaseUrl('core/css/public/'.$this->style->Style.'.css?v='.$this->style->Version)?>" />
 
     <?= $this->anjascript->jQuery() ?>

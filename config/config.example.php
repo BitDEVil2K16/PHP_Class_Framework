@@ -23,6 +23,7 @@ const LOGLVL = 7;
 $url = (isset($_SERVER['HTTPS']) ? "https://" : "http://");
 $url .= $_SERVER['HTTP_HOST']. str_replace(basename($_SERVER['SCRIPT_NAME']),"",$_SERVER['SCRIPT_NAME']);
 $config['base_url'] = $url;
+$config['index_page'] = "cool";
 $config['language']	= 'ger';
 $config['charset'] = 'UTF-8';
 $config['style'] = 'dark';

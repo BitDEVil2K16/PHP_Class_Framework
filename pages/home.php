@@ -5,16 +5,6 @@
         <span style="color: lime">I was Hidden!</span>
     </div>
 </div>
-<hr />
-<div class="centerflex h3">
-    <div>
-        ToDo und so : <a href="https://github.com/BitDEVil2K16/PHP_Class_Framework/projects/1" target="_blank" rel="noreferrer" >Github Project</a>
-    </div>
-    <div>
-        Source Code : <a href="https://github.com/BitDEVil2K16/PHP_Class_Framework" target="_blank" rel="noreferrer" >Github</a>
-    </div>
-</div>
-
 <?php
 //$this->cookiemanager->delete('style');
 //$this->style->SetStyle("dark");

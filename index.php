@@ -22,14 +22,6 @@ if (empty($page)) $page = "home";
 foreach(glob("core/*.class.php") as $class){
     include_once($class);
 }
-
-$base = new MainCore();
-$main =& $base->get_instance();
-
-load_class('AnjaScript', 'system');
-load_class('CCPlus', 'system');
-load_class('Style', 'system');
-
 InjectClass($page);
 
 
