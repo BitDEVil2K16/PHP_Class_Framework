@@ -168,8 +168,9 @@ if (!function_exists('GetJsonData')) {
     function GetJsonData($datadict, $file, $s = false)
     {
         $_ret = [];
-        if (fileExists(BaseURL("data/$datadict/$file.json"))){
-            $datadict = file_get_contents(BaseURL("data/$datadict/$file.json"));
+        $_file = BASEPATH.("data/$datadict/$file.json");
+        if (file_exists($_file)){
+            $datadict = file_get_contents($_file);
             if ($s) {
                 $_ret = json_decode($datadict)->$s;
             } else {
