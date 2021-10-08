@@ -1,7 +1,7 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 $errormessage = $errormessage ?? "Keine Weiteren Details";
-header($_SERVER['SERVER_PROTOCOL'] . ' 404 Not Found', true, 404);
-http_response_code(404);
+$errorcode = $errorcode ?? 503;
+set_status_header($errorcode);
 ?>
 <div class="row">
     <div class="w-100">

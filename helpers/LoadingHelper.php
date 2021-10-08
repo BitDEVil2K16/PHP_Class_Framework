@@ -34,6 +34,7 @@ if (!function_exists('InjectClass')){
             include_once($file);
             if (!class_exists($_class, false)) {
                 $data['errormessage'] = "Class not Found";
+                $data['errorcode'] = 501;
                 $base->LoadView("_defaults/_header");
                 $base->LoadView("_defaults/_error", $data);
                 $base->LoadView("_defaults/_footer");
@@ -46,6 +47,7 @@ if (!function_exists('InjectClass')){
                     $app->index();
                 } else {
                     $data['errormessage'] = "Methode not Found";
+                    $data['errorcode'] = 501;
                     $base->LoadView("_defaults/_header");
                     $base->LoadView("_defaults/_error", $data);
                     $base->LoadView("_defaults/_footer");
@@ -53,6 +55,7 @@ if (!function_exists('InjectClass')){
             } else {
                 if (!method_exists($app, 'index')) {
                     $data['errormessage'] = "Index not Found";
+                    $data['errorcode'] = 404;
                     $datah['title'] = "404 Error";
                     $ww = new MainCore();
                     $ww->LoadView("_defaults/_header", $datah);
@@ -74,6 +77,7 @@ if (!function_exists('InjectClass')){
                         } catch (Exception $exception) {
                             $datah['title'] = "404 Error";
                             $data['errormessage'] = $exception;
+                            $data['errorcode'] = 500;
                             $ww = new MainCore();
                             $ww->LoadView("_defaults/_header", $datah);
                             $ww->LoadView("_defaults/_error", $data);
@@ -91,7 +95,8 @@ if (!function_exists('InjectClass')){
         }else{
             if (!class_exists($_class, false)){
                 $data['errormessage'] = "Controller not Exist";
-                $datah['title'] = "404 Error";
+                $data['errorcode'] = 501;
+                $datah['title'] = "Controller Error";
                 $ww = new MainCore();
                 $ww->LoadView("_defaults/_header", $datah);
                 $ww->LoadView("_defaults/_error", $data);

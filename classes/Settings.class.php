@@ -106,7 +106,7 @@ class Settings {
 
         return isset($this->config[$index], $this->config[$index][$item]) ? $this->config[$index][$item] : NULL;
     }
-    public function slash_item($item)
+    public function slash_item($item): ?string
     {
         if ( ! isset($this->config[$item]))
         {

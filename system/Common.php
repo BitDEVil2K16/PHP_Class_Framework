@@ -175,7 +175,7 @@ if ( ! function_exists('set_status_header'))
     {
         if (empty($code) OR ! is_numeric($code))
         {
-            show_error('Status codes must be numeric', 500);
+            die('Status codes must be numeric');
         }
 
         if (empty($text))
@@ -238,41 +238,11 @@ if ( ! function_exists('set_status_header'))
             {
                 $text = $stati[$code];
             }
-            else
-            {
-                show_error('No status text available. Please check your status code number or supply your own message text.', 500);
-            }
-        }
-
-        if (strpos(PHP_SAPI, 'cgi') === 0)
-        {
-            header('Status: '.$code.' '.$text, TRUE);
-            return;
         }
 
         $server_protocol = (isset($_SERVER['SERVER_PROTOCOL']) && in_array($_SERVER['SERVER_PROTOCOL'], array('HTTP/1.0', 'HTTP/1.1', 'HTTP/2'), TRUE))
             ? $_SERVER['SERVER_PROTOCOL'] : 'HTTP/1.1';
         header($server_protocol.' '.$code.' '.$text, TRUE, $code);
-    }
-
-    if ( ! function_exists('show_error'))
-    {
-        function show_error($message, $status_code = 500, $heading = 'An Error Was Encountered')
-        {
-            $status_code = abs($status_code);
-            if ($status_code < 100)
-            {
-                $exit_status = $status_code + 9; // 9 is EXIT__AUTO_MIN
-                $status_code = 500;
-            }
-            else
-            {
-                $exit_status = 1; // EXIT_ERROR
-            }
-
-            $_error =& load_class('Exceptions', 'core');
-            echo $_error->show_error($heading, $message, 'error_general', $status_code);
-            exit($exit_status);
-        }
+        //http_response_code($code);
     }
 }
