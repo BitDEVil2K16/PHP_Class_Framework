@@ -47,6 +47,26 @@ foreach (convertuinttobits($flaguint) as $flag) {
 echo "<hr />";
 ?>
     <pre>
+    <code class="language-php">$xor = new XOR2();
+$stringtoenc = "https://bitdevil2k16.net/index";
+$encode = $xor->encode($stringtoenc,time());
+echo "String: ".$stringtoenc."<br />";
+echo "Salt: ".time()."<br />";
+echo "Encoded String: ".$encode."<br />";
+echo "Decoded String: ".$xor->decode($encode,time());
+echo "<hr />";</code>
+</pre>
+<?php
+$xor = new XOR2();
+$stringtoenc = "https://bitdevil2k16.net/index";
+$encode = $xor->encode($stringtoenc,time());
+echo "String: ".$stringtoenc."<br />";
+echo "Salt: ".time()."<br />";
+echo "Encoded String: ".$encode."<br />";
+echo "Decoded String: ".$xor->decode($encode,time());
+echo "<hr />";
+?>
+    <pre>
     <code class="language-php">echo "String to Hex: <span style='color: lime'>tes</span> -> " . Joaat("tes")."<br />\n";
 echo "String to Uint: <span style='color: lime'>tes</span> -> " . Joaat("tes", true)."<br />\n";
 echo "Uint as Hex: <span style='color: lime'>2519455989</span> -> ".UintToHex(2519455989)."<br />\n";

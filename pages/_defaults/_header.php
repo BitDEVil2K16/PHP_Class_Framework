@@ -16,7 +16,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title><?= !isset($this->config['sitename']) ? "" : $this->config['sitename']." | " ?> <?= $title ?? "Ohne Titel" ?></title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <link rel="stylesheet" href="<?= BaseUrl('core/css/mainstyle.css?v=0.0.9')?>" />
+    <link rel="stylesheet" href="<?= BaseUrl('core/css/mainstyle.css?v=0.0.11')?>" />
     <link rel="stylesheet" href="<?= BaseUrl('core/css/public/'.$this->style->Style.'.css?v='.$this->style->Version)?>" />
 
     <?= $this->anjascript->jQuery() ?>
@@ -38,8 +38,22 @@
             color: #40A4F3;
         }
         /* Overides for Higlight JS */
-        .hljs-ln-numbers {-webkit-touch-callout: none !important; -webkit-user-select: none !important; -khtml-user-select: none !important; -moz-user-select: none !important; -ms-user-select: none !important; user-select: none !important; text-align: center !important; color: #ccc !important; border-right: 1px solid #CCC !important; vertical-align: top !important; padding-right: 5px !important; }
-        .hljs-ln-code {padding-left: 12px !important; }
+        .hljs-ln-numbers {
+            -webkit-touch-callout: none !important;
+            -webkit-user-select: none !important;
+            -khtml-user-select: none !important;
+            -moz-user-select: none !important;
+            -ms-user-select: none !important;
+            user-select: none !important;
+            text-align: center !important;
+            color: #ccc !important;
+            border-right: 1px solid #CCC !important;
+            vertical-align: top !important;
+            padding-right: 4px !important;
+        }
+        .hljs-ln-code {
+            padding-left: 8px !important;
+        }
     </style>
 </head>
 
