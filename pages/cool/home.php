@@ -1,10 +1,20 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
+?>
+<style>
+    hr{
+        margin: 20px auto 20px auto;
+        width: 95%;
+    }
+</style>
+<?php
 $jo = $bla ?? false;
 if (!$jo){
+    echo "<hr />";
     echo $testnon ?? "Hmmm";
-    echo "<hr style='height: .1em; left: 0;' />";
     if (isset($blaarray))
+        echo "<pre>";
         print_r($blaarray);
+        echo "</pre>";
     echo "<br />";
     $startproject = new DateTime('2021-09-15 04:25:12', new DateTimeZone("Europe/Berlin"));
     $key = "starttime";
@@ -25,7 +35,7 @@ if (!$jo){
     //$this->cache->deleteItem("starttime");
     echo "Cachetime auf ".$minuten." Minuten aka ".$stundenformat." gesetzt<br />";
     echo $ctest ." <-- Cache Test läuft ab am: " . $CachedString->getExpirationDate()->format('d.m.Y H:i:s') . " | " . getdifferenz($CachedString->getExpirationDate()->getTimestamp() - time());
-    echo "<br />Project exist since: " . lifetime('2021-09-15 04:25:12') . "<br />";
+    echo "<br />Project exist since: " . lifetime('2021-09-15 04:25:12') . "<br /><hr />";
 }
 
 //foreach (GetJsonData('flags', 'ytyp.flags', 'Flags') as $flag){
@@ -39,13 +49,14 @@ $flaguint = $flagarg ?? 49;
 $flagtypearg = $flagtypearg ?? 'animation';
 //echo $flagtypearg; // animationFlags Default
 $rdm = rand(38,9564589);
-echo "<hr />Convert <span style='color: lime'>UINT</span>(<span style='color: #0b93d5'>$flaguint</span>) Back to Bits<br />
+echo "Convert <span style='color: lime'>UINT</span>(<span style='color: #0b93d5'>$flaguint</span>) Back to Bits<br />
 Anderes Flag testen? dann füge es an die URL an beispiel: <a href='".BaseUrl('cool/'.$rdm).'/'.$flagtypearg."' target='_top' rel='noreferrer'>".BaseUrl('cool/'.$rdm)."/$flagtypearg</a><br />";
 foreach (convertuinttobits($flaguint) as $flag) {
     echo "Bit: <span style='color: #40A4F3'>$flag</span> ist ".getFlagName($flag, $flagtypearg)."<br />";
 }
 echo "<hr />";
 ?>
+XOR Test:
     <pre>
     <code class="language-php">$xor = new XOR2();
 $stringtoenc = "https://bitdevil2k16.net/index";
@@ -66,6 +77,7 @@ echo "Encoded String: ".$encode."<br />";
 echo "Decoded String: ".$xor->decode($encode,time());
 echo "<hr />";
 ?>
+Zahlenspielerei HEX HEX
     <pre>
     <code class="language-php">echo "String to Hex: <span style='color: lime'>tes</span> -> " . Joaat("tes")."<br />\n";
 echo "String to Uint: <span style='color: lime'>tes</span> -> " . Joaat("tes", true)."<br />\n";
@@ -81,7 +93,7 @@ echo "Uint as Hex: <span style='color: lime'>2519455989</span> -> ".UintToHex(25
 echo "Hex as Uint: <span style='color: lime'>0x962BD8F5</span> -> ".HexToUint("0x962BD8F5")."<br />\n";
 echo "Uint to Int: <span style='color: lime'>2519455989</span> -> ".UintToInt(2519455989)."<br />\n";
 echo "Int to Uint: <span style='color: lime'>-1775511307</span> -> ".IntToUint(-1775511307)."<hr />\n";
-echo "\n<br /><br />>Database Test<br />\n";
+echo "Database Test<br />\n";
 
 echo "<u>Für diesen test haben wir eine Datenbank angelgt und eine Tabelle erstellt</u>:<br />
 <pre>

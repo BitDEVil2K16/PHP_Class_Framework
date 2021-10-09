@@ -16,7 +16,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title><?= !isset($this->config['sitename']) ? "" : $this->config['sitename']." | " ?> <?= $title ?? "Ohne Titel" ?></title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <link rel="stylesheet" href="<?= BaseUrl('core/css/mainstyle.css?v=0.0.11')?>" />
+    <link rel="stylesheet" href="<?= BaseUrl('core/css/mainstyle.css?v=0.0.14')?>" />
     <link rel="stylesheet" href="<?= BaseUrl('core/css/public/'.$this->style->Style.'.css?v='.$this->style->Version)?>" />
 
     <?= $this->anjascript->jQuery() ?>
@@ -58,3 +58,4 @@
 </head>
 
 <body>
+<div class="content">

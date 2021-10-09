@@ -1,3 +1,5 @@
+
+</div>
 <footer>
     <div class="footermain">
         <div class="footerleft"><a href="<?= $this->settings->site_url() ?>" target="_self"><?= $this->config['sitename'] ?></a></div>
