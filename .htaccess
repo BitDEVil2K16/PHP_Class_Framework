@@ -23,6 +23,7 @@ ServerSignature Off
 </Files>
 
 #Rewrite Rules
+
 RewriteCond %{REQUEST_URI} !(js|css|images)
 RewriteCond %{REQUEST_URI} !(\.css|\.js|\.png|\.jpg|\.gif|robots\.txt|\.ico)$ [NC] # Ignore File Extensions
 RewriteCond %{REQUEST_FILENAME} !-f
@@ -40,3 +41,7 @@ RewriteCond %{REQUEST_URI} !(\.css|\.js|\.png|\.jpg|\.gif|robots\.txt|\.ico)$ [N
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php?p=$1 [L,QSA]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule !\. - [H=application/x-httpd-php]
+

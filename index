@@ -1,0 +1,25 @@
+<?php
+header($_SERVER['SERVER_PROTOCOL'] . ' 403 Forbidden', true, 403);
+http_response_code(500);
+
+if (!function_exists('redirect')) {
+    /**
+     * @param $url
+     * @param bool $replace
+     * @param string $mode
+     * @param int $status
+     */
+    function redirect($url, string $mode = '', bool $replace = true, int $status = 303)
+    {
+        switch ($mode) {
+            case 'refresh':
+                header('Refresh:0;url=' . $url);
+                break;
+            default:
+                header('Location: ' . $url, $replace, $status);
+                break;
+        }
+        exit;
+    }
+}
+redirect("https://bitdevil2k16.net");
