@@ -121,11 +121,10 @@ class Settings {
     }
     public function site_url($uri = '', $protocol = NULL): string
     {
-        $base_url = $this->slash_item('base_url');
+        $base_url = BASEURL;
 
         if (isset($protocol))
         {
-            // For protocol-relative links
             if ($protocol === '')
             {
                 $base_url = substr($base_url, strpos($base_url, '//'));
