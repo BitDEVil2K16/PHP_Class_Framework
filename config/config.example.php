@@ -30,6 +30,7 @@ $config['style'] = 'dark';
 $config['timezone'] = 'Europe/Berlin';
 $config['timeformat'] = 'd.m.Y h:i:s';
 $config['sitename'] = "BitDEVil2K16 Network";
+$config['logo'] = $url."images/logo.jpg";
 
 $config['cookie_prefix']	= 'bit';
 $config['cookie_domain']	= 'dev.bitdevil2k16.club';

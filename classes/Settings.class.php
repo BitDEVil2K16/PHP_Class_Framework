@@ -171,7 +171,6 @@ class Settings {
     public function base_url($uri = '', $protocol = NULL): string
     {
         $base_url = $this->slash_item('base_url');
-
         if (isset($protocol))
         {
             // For protocol-relative links
@@ -184,7 +183,23 @@ class Settings {
                 $base_url = $protocol.substr($base_url, strpos($base_url, '://'));
             }
         }
-
+        return $base_url.$this->_uri_string($uri);
+    }
+    public function page_url($uri = '', $protocol = NULL): string
+    {
+        $base_url = $this->slash_item('base_url');
+        if (isset($protocol))
+        {
+            // For protocol-relative links
+            if ($protocol === '')
+            {
+                $base_url = substr($base_url, strpos($base_url, '//'));
+            }
+            else
+            {
+                $base_url = $protocol.substr($base_url, strpos($base_url, '://'));
+            }
+        }
         return $base_url.$this->_uri_string($uri);
     }
     protected function _uri_string($uri)
