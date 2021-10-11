@@ -6,7 +6,7 @@ class Cool extends MainCore{
         parent::__construct();
     }
 
-    public function index(string $argone = "0", string $argtwo = 'animation'){
+    public function index(string $argone = "49", string $argtwo = 'animation'){
         $data['bla'] = true;
         $data['testnon'] = "Das ist ein Toller Test, Bruder das fühl ich 12 von 10 son Ding ist das!";
         $data['blaarray'] = array("a","10min","0000");

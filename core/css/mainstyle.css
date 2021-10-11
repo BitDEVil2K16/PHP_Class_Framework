@@ -20,7 +20,7 @@ html{
 }
 body{
     margin-bottom: 50px;
-    padding-top: 30px;
+    /* padding-top: 30px; */
 }
 .content{
     margin: 1em;
@@ -30,8 +30,9 @@ footer .footermain{
     bottom: 0;
     left: 0;
     right: 0;
-    height: 1.5em;
+    /* height: 1.5em; */
     background: rgba(0,0,0,.95);
+    color: #999 !important;
     width: 100%;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -57,14 +58,14 @@ footer .footerright{
 }
 @media only screen and (max-width: 867px){
     body{
-        margin-bottom: 0;
+        margin-bottom: 135px !important;
     }
     footer .footermain{
-        position:static;
+        position:fixed;
         left:0;
         bottom:0;
         width:100%;
-        height: 100%;
+        height: 130px;
         padding-top: 5px;
         padding-bottom: 5px;
     }
@@ -86,10 +87,11 @@ footer .footerright{
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 0 auto;
 }
 
 .centerflex div {
-    width: 450px;
+    width: 650px;
     height: 50px;
 }
 

@@ -93,7 +93,7 @@ echo "Uint as Hex: <span style='color: lime'>2519455989</span> -> ".UintToHex(25
 echo "Hex as Uint: <span style='color: lime'>0x962BD8F5</span> -> ".HexToUint("0x962BD8F5")."<br />\n";
 echo "Uint to Int: <span style='color: lime'>2519455989</span> -> ".UintToInt(2519455989)."<br />\n";
 echo "Int to Uint: <span style='color: lime'>-1775511307</span> -> ".IntToUint(-1775511307)."<hr />\n";
-echo "Database Test<br />\n";
+echo "<div id='databasetest'>Database Test<br />\n";
 
 echo "<u>Für diesen test haben wir eine Datenbank angelgt und eine Tabelle erstellt</u>:<br />
 <pre>
@@ -121,7 +121,7 @@ Und nun folgen die Ausgaben:<br /><br />
 ";
 
 
-echo "<hr />";
+echo "</div><hr />";
 /* Normal Quest */
 ?>
 <pre>

@@ -33,8 +33,8 @@
     <meta name='twitter:description' content="<?= $description ?? "BitDEVil2K16 Network - Website" ?>" />
     <meta name='twitter:url' content="<?= $actual_link ?>" />
     <meta name="twitter:image" content="<?= ($ogimage = $ogimage ?? "") ? $ogimage : (!isset($this->config['logo']) ? "" : $this->config['logo']) ?>">
-    <link rel="stylesheet" href="<?= BaseUrl('core/css/mainstyle.css?v=0.0.14')?>" />
-    <link rel="stylesheet" href="<?= BaseUrl('core/css/public/'.$this->style->Style.'.css?v='.$this->style->Version)?>" />
+    <link rel="stylesheet" href="<?= BaseUrl('core/css/mainstyle.css?v=0.1.3')?>" />
+    <link rel="stylesheet" href="<?= BaseUrl('core/css/'.$this->style->Style.'.css?v='.$this->style->Version)?>" />
     <?= $this->anjascript->jQuery() ?>
     <?= $this->anjascript->jQueryUi() ?>
     <?= $this->anjascript->higlightjs('github-dark-dimmed') ?>
@@ -72,6 +72,35 @@
         }
     </style>
 </head>
-
 <body>
+<?php if($this->config['bootstrap']): ?>
+<div class="d-flex" id="wrapper">
+
+<!-- Page content wrapper-->
+<div id="page-content-wrapper">
+    <!-- Top navigation-->
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark border-bottom fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><?= $this->config['sitename'] ?></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                    <li id="home" class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                    <li id="cool" class="nav-item"><a class="nav-link" href="/cool">Cool</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#!">Action</a>
+                            <a class="dropdown-item" href="#!">Another action</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#!">Something else here</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+<!-- Page content wrapper-->
+<div id="page-content-wrapper" style="padding-top: 60px; margin-bottom: 60px;">
+<?php endif; ?>
 <div class="content">

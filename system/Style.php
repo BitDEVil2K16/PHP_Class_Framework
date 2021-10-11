@@ -10,7 +10,7 @@
  */
 class Style{
     public $Style;
-    public $Version = "1.0.0";
+    public $Version = "1.0.4";
 
     public function __construct()
     {
@@ -25,10 +25,28 @@ class Style{
     }
     private function _GetStyle(): string
     {
-        if (get_instance()->cookiemanager->get('style')){
-            return get_instance()->cookiemanager->get('style');
+        if (config_item('bootstrap')){
+            $_style = config_item('bootstrap-style');
+            if (get_instance()->cookiemanager->get('style')){
+                if (get_instance()->cookiemanager->get('style') != $_style){
+                    $this->SetStyle($_style);
+                    return "bootstrap/".$_style;
+                }
+                return "bootstrap/".get_instance()->cookiemanager->get('style');
+            } else {
+                return "bootstrap/".config_item('bootstrap-style');
+            }
         } else {
-            return config_item('style');
+            if (get_instance()->cookiemanager->get('style')){
+                if (get_instance()->cookiemanager->get('style') != config_item('style')){
+                    $this->SetStyle(config_item('style'));
+                    return "public/".config_item('style');
+                }
+                return "public/".get_instance()->cookiemanager->get('style');
+            } else {
+                return "public/".config_item('style');
+            }
         }
+
     }
 }
