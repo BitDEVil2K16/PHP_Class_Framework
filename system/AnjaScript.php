@@ -49,4 +49,10 @@ class AnjaScript{
     <script defer src="'.BaseUrl('plugins/highlightjs/highlight.min.js').'"></script>'.PHP_EOL;
     }
 
+    function lightbox(): string
+    {
+        return '<link rel="stylesheet" href="'.BaseUrl('plugins/lightbox/css/lightbox.min.css').'" />
+    <script defer src="'.BaseUrl('plugins/lightbox/js/lightbox.min.js').'"></script>'.PHP_EOL;
+    }
+
 }

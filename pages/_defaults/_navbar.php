@@ -6,7 +6,7 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
-                <li id="home" class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                <li id="home" class="nav-item"><a class="nav-link" href="/">Startseite</a></li>
                 <li id="cool" class="nav-item"><a class="nav-link" href="/cool">Allgemeine Funktionen</a></li>
                 <li id="pictures" class="nav-item"><a class="nav-link" href="/pictures">Bilder Funktion</a></li>
                 <li class="nav-item dropdown">
