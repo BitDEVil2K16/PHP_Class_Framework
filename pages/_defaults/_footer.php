@@ -10,12 +10,11 @@ if (file_exists(BASEPATH.'core/js/bootstrap/'.$this->config['bootstrap-style'].'
 <?php
 }
 ?>
-        </div>
     </div>
 </div>
 <?php endif; ?>
 
-<footer>
+<footer id="footer">
     <div class="footermain">
         <div class="footerleft"><a href="<?= $this->settings->site_url() ?>" target="_self"><?= $this->config['sitename'] ?></a></div>
         <div class="footercenter">

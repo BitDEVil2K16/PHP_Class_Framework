@@ -2,30 +2,72 @@
     .hiddeblock {
         display: none;
     }
-    .h3{
-        font-size: 20px !important;
+    .centerflex div {
+        width: 100%;
+        min-width: 250px;
+        height: 50px;
+    }
+    .card{
+        margin-right: 10px;
+    }
+    .card-body{
+        height: 180px;
+        max-height: 180px;
+        overflow-y: auto;
     }
 </style>
-<div class="row">
-    <div class="ml-3 mr-3 mt-2">
-        <div class="d-inline-block float-left mt-3 mr-2 d-flex flex-wrap justify-content-center">
+<?php
+$maxperrow = "col-md-3";
+$cardset = "w-100 mb-4";
+?>
+<div class="row grid flex">
+    <div class='<?= $maxperrow ?> d-flex align-items-stretch'>
+        <div class="card <?= $cardset ?>">
+            <div class="card-header">Card 1</div>
+            <div class="card-body" >
+                <div>Willkommen auf der 0815 ohne Bedeutung Landing Page!</div>
+            </div>
+            <div class="card-footer">&copy; 2021</div>
+        </div>
+    </div>
 
-            <span id="hiddenpart" class="hiddeblock">
-                <div class="centerflex" style="color: lime;">
-                    <div>I was Hidden, but now i am Visible!</div>
-                </div>
-            </span>
-            <span id="hiddenpart2" class="hiddeblock">
-                <div class="centerflex" style="color: lime;">
-                    <div>I was Hidden, but now i am Visible!</div>
-                </div>
-            </span>
-            <div class="centerflex" >
+    <div class='<?= $maxperrow ?> d-flex align-items-stretch'>
+        <div class="card <?= $cardset ?>">
+            <div class="card-header">Card 2</div>
+            <div class="card-body" style="color: lime;">
+                <div id="hiddenpart" class="hiddeblock">I was Hidden, but now i am Visible!</div>
+            </div>
+            <div class="card-footer">&copy; 2021</div>
+        </div>
+    </div>
+
+    <div class='<?= $maxperrow ?> d-flex align-items-stretch'>
+        <div class="card <?= $cardset ?>">
+            <div class="card-header">Card 3</div>
+            <div class="card-body" >
                 <div>Willkommen auf der 0815 ohne Bedeutung Landing Page!</div>
             </div>
-            <div class="centerflex" >
-                <div>Willkommen auf der 0815 ohne Bedeutung Landing Page!</div>
+            <div class="card-footer">&copy; 2021</div>
+        </div>
+    </div>
+
+    <div class='<?= $maxperrow ?> d-flex align-items-stretch'>
+        <div  class="card <?= $cardset ?>">
+            <div class="card-header">Card 4</div>
+            <div class="card-body" style="color: lime;">
+                <div id="hiddenpart3" class="hiddeblock">I was Hidden, but now i am Visible!</div>
             </div>
+            <div class="card-footer">&copy; 2021</div>
+        </div>
+    </div>
+
+    <div class='<?= $maxperrow ?> d-flex align-items-stretch'>
+        <div class="card <?= $cardset ?>">
+            <div class="card-header">Card 5</div>
+            <div class="card-body" style="color: lime;">
+                <div id="hiddenpart2" class="hiddeblock">I was Hidden, but now i am Visible!</div>
+            </div>
+            <div class="card-footer">&copy; 2021</div>
         </div>
     </div>
 </div>
@@ -34,7 +76,11 @@
     // Inline Script
     setTimeout(()=>{
         $("#hiddenpart").css('display','block');
-        $("#hiddenpart2").css('display','block');
-        //document.getElementById("hiddenpart").style.display = "block";
+        setTimeout(()=>{
+            $("#hiddenpart3").css('display','block');
+            setTimeout(()=>{
+                $("#hiddenpart2").css('display','block');
+            },1000);
+        },1000);
     },1000);
 </script>
