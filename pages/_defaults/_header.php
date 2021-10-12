@@ -6,6 +6,7 @@
         ini_set('log_errors', TRUE);
         ini_set('error_log', BASEPATH.'logs/PHP_ERROR-'.date('Y-m-d').'-error.log');
     }
+    //header("Cache-Control: max-age=31536000");
     $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 ?>
 <!DOCTYPE html>
@@ -19,6 +20,7 @@
     <meta name="keywords" content="<?= $metatags ?? "HTML, CSS, JavaScript, PHP, Template" ?>">
     <meta name="author" content="BitDEVil2K16 Club">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="Cache-control" content="public">
     <title><?= !isset($this->config['sitename']) ? "" : $this->config['sitename']." | " ?><?= $title ?? "Ohne Titel" ?></title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link rel='canonical' href='<?= $actual_link ?>' />
@@ -42,6 +44,7 @@
     <?= $this->anjascript->jQuery() ?>
     <?= $this->anjascript->jQueryUi() ?>
     <?= $this->anjascript->higlightjs('github-dark-dimmed') ?>
+    <?= $this->anjascript->lightbox() ?>
     <style>
         /* Inline Style / Styleoverwrites */
         <?php if(!$this->config['bootstrap']): ?>

@@ -40,6 +40,7 @@ if ($segment[0] == ''){
 }
 $cur_tab = strtolower($cur_tab);
 if ($cur_tab == 'index') $cur_tab = 'home';
+$cur_tab = strtok($cur_tab, '?');
 ?>
 <script>
     document.addEventListener('DOMContentLoaded', (event) => {
@@ -64,9 +65,7 @@ if ($cur_tab == 'index') $cur_tab = 'home';
             } else {
                 $("#<?= explode('_',$cur_tab)[0] ?> > a").addClass('active');
             }
-        } catch (e) {
-            console.error(e)
-        }
+        } catch {}
         function detectMobile() {
             return ( ( window.innerWidth <= 800 ) && ( window.innerHeight <= 600 ) );
         }

@@ -34,7 +34,7 @@ class MainCore extends Extender{
     public $logger;
     public $settings;
 
-    public function __construct()
+    function __construct()
     {
         global $cacheinstance;
         self::$instance =& $this;
@@ -106,13 +106,11 @@ class MainCore extends Extender{
 
     public function LoadView($page, $data = NULL){
         Global $main;
-
         if (!$data){
             $data = [];
         }
         /* Set User Style */
         //$this->style->SetStyle(config_item('style'));
-
         $datas['data'] = $data;
         if (gettype($datas['data']) != "string"){
             foreach ($datas['data'] as $key => $value){

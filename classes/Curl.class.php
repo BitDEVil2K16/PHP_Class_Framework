@@ -106,9 +106,10 @@ class Curl{
     /**
      * @param $file_source
      * @param $file_target
+     * @param string $host
      * @return bool
      */
-    public function download($file_source, $file_target, $host = ''): bool
+    public function download($file_source, $file_target, string $host = ''): bool
     {
         $ch = curl_init();
         $file_target = BASEPATH.$file_target; // BASEPATH RelativPath to App root eg. /var/www/meinedomain/html/
@@ -155,5 +156,4 @@ class Curl{
         file_put_contents($file_target, $data);
         return true;
     }
-
 }
