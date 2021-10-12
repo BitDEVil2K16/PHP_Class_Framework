@@ -9,7 +9,12 @@
     $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 ?>
 <!DOCTYPE html>
-<html lang="de" style="background: #333; color: #999">
+<?php if($this->config['bootstrap']): ?>
+<html lang="de">
+<?php else: ?>
+<html lang="de" style="background: #333; color: #9E9E9E">
+<?php endif; ?>
+
 <head>
     <meta name="description" content="<?= $description ?? "BitDEVil2K16 Network - Website" ?>">
     <meta name="keywords" content="<?= $metatags ?? "HTML, CSS, JavaScript, PHP, Template" ?>">
@@ -33,19 +38,15 @@
     <meta name='twitter:description' content="<?= $description ?? "BitDEVil2K16 Network - Website" ?>" />
     <meta name='twitter:url' content="<?= $actual_link ?>" />
     <meta name="twitter:image" content="<?= ($ogimage = $ogimage ?? "") ? $ogimage : (!isset($this->config['logo']) ? "" : $this->config['logo']) ?>">
-    <link rel="stylesheet" href="<?= BaseUrl('core/css/mainstyle.css?v=0.1.3')?>" />
+    <link rel="stylesheet" href="<?= BaseUrl('core/css/mainstyle.css?v=0.1.5')?>" />
     <link rel="stylesheet" href="<?= BaseUrl('core/css/'.$this->style->Style.'.css?v='.$this->style->Version)?>" />
     <?= $this->anjascript->jQuery() ?>
     <?= $this->anjascript->jQueryUi() ?>
     <?= $this->anjascript->higlightjs('github-dark-dimmed') ?>
     <style>
         /* Inline Style / Styleoverwrites */
-        .hiddeblock {
-            display: none;
-        }
-        .h3{
-            font-size: 20px !important;
-        }
+        <?php if(!$this->config['bootstrap']): ?>
+
         a{
             text-decoration: none;
             color: #40A4F3;
@@ -53,6 +54,13 @@
         a:visited{
             color: #40A4F3;
         }
+        <?php else: ?>
+        
+        a{
+            text-decoration: none;
+        }
+        <?php endif; ?>
+
         /* Overides for Higlight JS */
         .hljs-ln-numbers {
             -webkit-touch-callout: none !important;
@@ -74,8 +82,7 @@
 </head>
 <body>
 <?php if($this->config['bootstrap']): ?>
-<div class="d-flex" id="wrapper">
-
+<div id="wrapper">
 <!-- Page content wrapper-->
 <div id="page-content-wrapper">
     <!-- Top navigation-->

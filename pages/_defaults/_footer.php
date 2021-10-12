@@ -4,7 +4,12 @@
 <!-- Bootstrap core JS-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Core theme JS-->
-<script src="<?= BaseUrl('core/js/bootstrap/'.$this->config['bootstrap-style'].'.js?v=1')?>"></script>
+<?php
+if (file_exists(BASEPATH.'core/js/bootstrap/'.$this->config['bootstrap-style'].'.js')){
+?><script src="<?= BaseUrl('core/js/bootstrap/'.$this->config['bootstrap-style'].'.js?v=1')?>"></script>
+<?php
+}
+?>
         </div>
     </div>
 </div>
