@@ -83,12 +83,11 @@ echo '</div></div></div>
         echo "\t".'<div class="d-inline-block float-left mt-2 mx-1 d-flex flex-wrap justify-content-center">'.PHP_EOL;
         if($totla_pages > 1){
             echo "\t\t".' <a class="btn btn-primary mx-1" href="'.BaseUrl($buildreq).'">Startseite</a> '."\n";
-
             if($page != 1){
-                echo "\t\t".'<a class="btn btn-success mx-1" href="'.BaseUrl($buildreq).'?page='.($page-1).'"><-</a> '."\n";
+                echo "\t\t".'<a class="btn btn-success mx-1" href="'.BaseUrl($buildreq).'?page='.($page-1).'">-</a> '."\n";
             }
             if($page != $totla_pages){
-                echo "\t\t".' <a class="btn btn-success mx-1" href="'.BaseUrl($buildreq).'?page='.($page+1).'">-></a>'."\n";
+                echo "\t\t".' <a class="btn btn-success mx-1" href="'.BaseUrl($buildreq).'?page='.($page+1).'">+</a>'."\n";
             }
             echo "\t\t".' <a class="btn btn-primary mx-1" href="'.BaseUrl($buildreq).'?page='.$totla_pages.'">Letzte Seite</a> '."\n";
         }

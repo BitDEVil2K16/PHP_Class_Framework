@@ -23,6 +23,7 @@ class Cool extends MainCore{
         $dataheader['metatags'] = "HTML, CSS, JavaScript, PHP, Template, Test, Cool";
         $dataheader['ogimage'] = BaseURL("images/logo.jpg");
         $dataheader['ogimage'] = "";
+//        $this->session->set_flashdata('success','Nicht Erlaubt');
         $this->LoadView("_defaults/_header", $dataheader);
         $this->LoadView("cool/home", $data);
         $this->LoadView("_defaults/_footer");

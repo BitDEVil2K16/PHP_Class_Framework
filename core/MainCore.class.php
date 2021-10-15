@@ -21,9 +21,9 @@ CacheManager::setDefaultConfig(new Config([
     "itemDetailedDate" => false
 ]));
 $cacheinstance = CacheManager::getInstance('files');
-//error_reporting(E_ALL);
-//ini_set('ignore_repeated_errors', TRUE);
-//ini_set('display_errors', TRUE);
+error_reporting(E_ALL);
+ini_set('ignore_repeated_errors', TRUE);
+ini_set('display_errors', TRUE);
 class MainCore extends Extender{
     private static $instance;
     public $db;
@@ -33,6 +33,7 @@ class MainCore extends Extender{
     public $cache;
     public $logger;
     public $settings;
+    public $session;
 
     function __construct()
     {
@@ -64,6 +65,7 @@ class MainCore extends Extender{
         if ($this->cache == null){
             $this->cache = $cacheinstance;
         }
+        $this->session = new Session();
         $logLevels = array(
             0 => 'EMERGENCY',
             1 => 'ALERT',

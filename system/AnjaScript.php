@@ -55,4 +55,9 @@ class AnjaScript{
     <script defer src="'.BaseUrl('plugins/lightbox/js/lightbox.min.js').'"></script>'.PHP_EOL;
     }
 
+    function notify(): string
+    {
+        return '<script defer src="'.BaseUrl('plugins/notify/notify.min.js').'"></script>'.PHP_EOL;
+    }
+
 }

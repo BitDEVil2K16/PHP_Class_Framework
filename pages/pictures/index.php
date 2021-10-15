@@ -53,9 +53,9 @@
 </div>
 <pre>
     <code class="language-php">//In der Variante würden keine Thumbs erstellt
-$this->ccplus->getImagesFromFolder('test',7);
+$this->ccplus->getImagesFromFolder('test',9);
 //Hier auf der Webseite Nutzen wir diesen Code
-$this->ccplus->getImagesFromFolder('test',7,true);
+$this->ccplus->getImagesFromFolder('test',9,true);
 /*
 Die 3 Parameter geben fogendes an
 Der erste ist das Sub Verzeichniss was sich im Verzeichniss root/dynamic_content befindet in unserem fall root/dynamic_content/test
@@ -65,7 +65,7 @@ Der Dritte gibt an ob Thumbinals erstellt werden sollen um die Seite zu Beschleu
     </code>
     </pre>
 <?php
-$this->ccplus->getImagesFromFolder('test',7,true);
+$this->ccplus->getImagesFromFolder('test',9,true);
 ?>
 <script>
     document.addEventListener('DOMContentLoaded', (event) => {
@@ -75,5 +75,8 @@ $this->ccplus->getImagesFromFolder('test',7,true);
             'showImageNumberLabel': true,
             'albumLabel': 'Bild %1 von %2',
         });
+        try{
+            $.notify("Automatet Image Galarie Addon", { className: "error", position:"bottom left" });
+        }catch{}
     });
 </script>

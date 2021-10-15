@@ -45,6 +45,7 @@
     <?= $this->anjascript->jQueryUi() ?>
     <?= $this->anjascript->higlightjs('github-dark-dimmed') ?>
     <?= $this->anjascript->lightbox() ?>
+    <?= $this->anjascript->notify(); ?>
     <style>
         /* Inline Style / Styleoverwrites */
         <?php if(!$this->config['bootstrap']): ?>
@@ -92,3 +93,5 @@
 <div id="page-content-wrapper" style="padding-top: 60px; margin-bottom: 60px;">
 <?php endif; ?>
 <div class="content">
+<?php $this->LoadView('_defaults/_msg') ?>
+

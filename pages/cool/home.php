@@ -188,5 +188,3 @@ echo "<br />Letze insert ID: " . ($lastinsert == 0 ? "Kein INSERT ausgeführt da
 
 echo "<br /><hr />Quellcode dieser Seite <a href='https://github.com/BitDEVil2K16/PHP_Class_Framework/blob/main/pages/cool/home.php#L1' target='_blank' rel='noreferrer'>direklink zum Git</a>";
 
-
-
