@@ -37,17 +37,8 @@ if (!$jo){
     echo $ctest ." <-- Cache Test läuft ab am: " . $CachedString->getExpirationDate()->format('d.m.Y H:i:s') . " | " . getdifferenz($CachedString->getExpirationDate()->getTimestamp() - time());
     echo "<br />Project exist since: " . lifetime('2021-09-15 04:25:12') . "<br /><hr />";
 }
-
-//foreach (GetJsonData('flags', 'ytyp.flags', 'Flags') as $flag){
-//    echo $flag->flag." : ".$flag->description."<br>";
-//}
-//foreach (GetJsonData('flags', 'ytyp.flags', 'SpecialFlags') as $flag){
-//    echo $flag->flag." : ".$flag->description."<br>";
-//}
-
 $flaguint = $flagarg ?? 49;
 $flagtypearg = $flagtypearg ?? 'animation';
-//echo $flagtypearg; // animationFlags Default
 $rdm = rand(38,9564589);
 echo "Convert <span style='color: lime'>UINT</span>(<span style='color: #0b93d5'>$flaguint</span>) Back to Bits<br />
 Anderes Flag testen? dann füge es an die URL an beispiel: <a href='".BaseUrl('cool/'.$rdm).'/'.$flagtypearg."' target='_top' rel='noreferrer'>".BaseUrl('cool/'.$rdm)."/$flagtypearg</a><br />";
